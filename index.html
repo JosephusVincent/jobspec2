@@ -15,33 +15,33 @@
 	<div id="wrapper">
 
 		<!-- Toolbar -->
-		<md-toolbar>
-			<h1>Angular Material Design</h1>
+		<md-toolbar layout-align="center center">
+			<h1>Back-Office Adminstrator</h1>
 		</md-toolbar>
 
 		<!-- Update Advertisement -->
 		<md-card>
 			<md-card-title>
-				<md-card-title-text>
-					<span class="md-headline">Update Advertisement</span>              
+				<md-card-title-text layout-align="center center">
+					<span class="md-headline" >Update Advertisement</span>              
 				</md-card-title-text>
 			</md-card-title>  
 			<md-card-content>
-				<form name="userForm" novalidate>
+				<form name="userForm">
 					<div layout="column">
 
 						<!-- Ad Title -->
 						<md-input-container>
 							<label>Ad Title</label>
-							<input type="text" name="name" ng-model="user.name">
+							<input type="text" ng-model="user.name">
 						</md-input-container>
 						<!-- Leads -->
 						<md-input-container>
 							<label>Leads</label>
-							<input type="text" name="username" ng-model="user.username" minlength="3" maxlength="8">
+							<input type="text" ng-model="user.username" disabled>
 						</md-input-container>     
 						<!-- Category -->
-						<md-input-container  ng-controller="SelectOptGroupController" ng-cloak>
+						<md-input-container ng-controller="SelectCategory" ng-cloak>
 							<label>Category</label>
 							<md-select ng-model="cat">
 								<md-optgroup label="Account & Bookkeeping">
@@ -92,89 +92,94 @@
 							</md-select>
 						</md-input-container>
 						<!-- Classification -->
-						<md-input-container>
+						<md-input-container ng-controller="SelectClass">
 							<label>Classification</label>
-							<input type="text">
+							<md-select ng-model="class">
+								<md-option ng-value="class.name" ng-repeat="class in jobClass">{{class.name}}</md-option>
+							</md-select>
 						</md-input-container>
 						<!-- Outsourcing Model -->
-						<md-input-container>
+						<md-input-container ng-controller="SelectOModel">
 							<label>Outsourcing Model</label>
-							<input type="text">
+							<md-select ng-model="O_model">
+								<md-option ng-value="O_model.name" ng-repeat="O_model in OM">{{O_model.name}}</md-option>
+							</md-select>	
 						</md-input-container>
 						<!-- Company -->
-						<md-input-container>
+						<md-input-container ng-controller="SelectCompany">
 							<label>Company</label>
-							<input type="text">
+							<md-select ng-model="comp">
+								<md-option ng-value="comp.name" ng-repeat="comp in jobComp">{{comp.name}}</md-option>
+							</md-select>
 						</md-input-container>
 						<!-- Heading -->
 						<md-input-container>
 							<label>Heading</label>
+							<!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
 							<input type="text">
 						</md-input-container>
 						<!-- Status -->
-						<md-input-container>
+						<md-input-container ng-controller="SelectStatus">
 							<label>Status</label>
-							<md-select name="type" ng-model="">
-								<md-option value="app">Yes</md-option>
-								<md-option value="web">No</md-option>
+							<md-select name="type" ng-model="jStat">
+								<md-option ng-value="jStat.name" ng-repeat="jStat in jobStatus">{{jStat.name}}</md-option>
 							</md-select>
 						</md-input-container>
 						<!-- Show Status -->
-						<md-input-container >
-							<label for="">Show Status</label>
-							<md-select name="type" ng-model="project.type">
-								<md-option value="app">Yes</md-option>
-								<md-option value="web">No</md-option>
+						<md-input-container ng-controller="SelectShowStatus">
+							<label>Show Status</label>
+							<md-select name="type" ng-model="jShowStat">
+								<md-option ng-value="jShowStat.name" ng-repeat="jShowStat in jobShowStatus">{{ jShowStat.name }}</md-option>
 							</md-select>
-						</md-select>
+						</md-input-container>
+						
+						<!-- Requirements -->
+						<md-input-container ng-controller="SelectShowStatus">
+							<label>Requirements</label>
+							<md-select name="type" ng-model="jShowStat">
+								<md-option ng-value="jShowStat.name" ng-repeat="jShowStat in jobShowStatus">{{ jShowStat.name }}</md-option>
+							</md-select>
+						</md-input-container>
 
-					</md-input-container>
 				</form>
-				<md-card-content>
-					<md-card-actions layout="row" layout-align="end center">
-						<md-button ng-click="submitForm()" class="md-raised md-default">Cancel</md-button>
-						<md-button ng-click="submitForm()" class="md-raised md-primary">Submit</md-button>
-					</md-card-actions>
-				</md-card-content>
-			</md-card>
+			</md-card-content>
+		</md-card>
 
+		<!-- <md-card>
+			<md-card-title>
+				<md-card-title-text >
+					<span class="md-headline" >Update Advertisement</span>              
+				</md-card-title-text>
+			</md-card-title>  
+			<md-card-content>
+			</md-card-content>
+		</md-card>
+ -->
+		<md-card-content>
+			<md-card-actions layout="row" layout-align=" center">
+				<md-button ng-click="submitForm()" class="md-raised md-default">Cancel</md-button>
+				<md-button ng-click="submitForm()" class="md-raised md-primary">Update</md-button>
+			</md-card-actions>
+		</md-card-content>
+	</div>
 
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
 
-			
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 
-		</div>
+	<!-- jQuery CDN -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
+	<!-- tinymce plugin -->
+	<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 
+	<!-- Custom Script -->
+	<script type="text/javascript" src="./assets/js/script.js"></script>
 
-		<!-- 	<md-content class="md-padding">
-				<md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-					<md-nav-item md-nav-click="goto('page1')" name="page1">
-						Page One
-					</md-nav-item>
-					<md-nav-item md-nav-click="goto('page2')" name="page2" ng-disabled="secondTabDisabled">
-						Page Two
-					</md-nav-item>
-				</md-nav-bar>
-				<span>{{status}}</span>
-				<div class="ext-content">
-					{{currentNavItem}}
-				</div>
-			</md-content>
-		</div> -->
-
-		<!-- Angular Material requires Angular.js Libraries -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-
-		<!-- Angular Material Library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
-
-		<!-- Custom Script -->
-		<script type="text/javascript" src="./assets/js/script.js"></script>
-
-
-
-	</body>
-	</html>
+</body>
+</html>

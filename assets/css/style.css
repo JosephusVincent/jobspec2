@@ -1,3 +1,14 @@
+ * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#wrapper {
+	min-height: 100%;
+	height: auto;
+	width: 100%;
+}
+
 #wrapper #con .form {
   background-color: lightgreen;
 }
@@ -10,29 +21,29 @@
     margin: 4rem 15rem!important;
 }
 
-
-
-
-
-/*
-Media Query
- */
-/* Desktop */
-@media only screen and (max-width: 961px) {
-
- 
+#wrapper md-card md-card-title {
+	background-color: darkseagreen;
+	color: white;
+	margin-bottom: 2rem;
 }
 
-/* Tablet */
+
+Media Query
+Desktop
+@media only screen and (max-width: 961px) {
+
+}
+
+Tablet
 @media only screen and (min-width: 401px) and (max-width: 960px) {
   #wrapper md-card {
-        margin: 3rem!important;
+        margin: 5rem!important;
     }
 }
 
-/* Mobile */
+Mobile
 @media only screen and (max-width: 400px) {
   #wrapper md-card {
       margin: 3rem!important;
   }
-}
+} 
