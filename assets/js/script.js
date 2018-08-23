@@ -12,7 +12,7 @@
       { category: 'A & B', name: 'General Accounting' },
       { category: 'A & B', name: 'SAP' },
       { category: 'A & B', name: 'Bookkeping' },
-      { category: 'A & B', name: 'xero' },
+      { category: 'A & B', name: 'Xero' },
       { category: 'Adm', name: 'Collections Proffesionals' },
       { category: 'Adm', name: 'Data Entry' },
       { category: 'Adm', name: 'Technical Support' },
@@ -151,7 +151,71 @@
         { name: 'No' }];
     });
     
-    tinymce.init({selector:'textarea',
-        plugins: "code image"
+
+    app.controller('dialogCtrl', function($scope, $mdDialog){
+        $scope.status = '  ';
+        $scope.customFullscreen = false;
+
+        $scope.showPrompt = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.prompt()
+        .title('Add Requirements')
+        .textContent('')
+        .placeholder('Requirement\'s Name ')
+        .ariaLabel('Dog name')
+        .initialValue('')
+        .targetEvent(ev)
+        .required(true)
+        .ok('OK')
+        .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function(result) {
+            $scope.status = result;
+            }, function() {
+              $scope.status = 'You didn\'t name your dog.';
+          });
+        };
+    });
+
+
+    // tinymce.init({selector:'textarea',
+    //     plugins: "code image"
+    // });
+
+    app.controller('MainCtrl', function($scope) {
+
+    //  $scope.dataType = ['type1', 'type2', 'type'];
+    $scope.dataType = [
+        {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
+        {id: 2, colId:['col2', 'col3'], dataTypeName: 'Alpha'},
+        {id: 3, colId:['col5', 'col6', 'col7', 'col8'], dataTypeName: 'List Value'}
+        ];
+
+    $scope.columns = [{colId: 'col1', name:'', dataType:[], dataFormat:'',  excludedChar:'', maxLength:'', isKeyField:false, isKeyRequired:false }];
+
+    $scope.addNewColumn = function() {
+        var newItemNo = $scope.columns.length+1;
+            $scope.columns.push({'colId':'col'+newItemNo});
+        };
+    });
+
+
+
+
+
+    app.controller('reqAd', function($scope){
+        //  $scope.dataType = ['type1', 'type2', 'type'];
+        // $scope.dataType = [
+        //     {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
+        //     {id: 2, colId:['col2', 'col3'], dataTypeName: 'Alpha'},
+        //     {id: 3, colId:['col5', 'col6', 'col7', 'col8'], dataTypeName: 'List Value'}
+        //     ];
+
+        $scope.columns = [];
+
+        $scope.addNewColumn = function() {
+            var newItemNo = $scope.columns.length+1;
+                $scope.columns.push(newItemNo);
+        };
     });
 

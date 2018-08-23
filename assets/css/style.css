@@ -3,47 +3,141 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 #wrapper {
 	min-height: 100%;
 	height: auto;
 	width: 100%;
+	padding: 1.5rem 0rem;
 }
 
-#wrapper #con .form {
-  background-color: lightgreen;
-}
-
-#wrapper md-input-container {
+#wrapper #jobAd md-card-content md-input-container {
     margin: 12px 0;
 }
 
-#wrapper md-card {
-    margin: 4rem 15rem!important;
+/* JobAd Information Card */
+#wrapper #jobAd,
+#wrapper #reqAd,
+#wrapper #resAd,
+#wrapper #hisAd
+{
+    margin: 2rem 9rem!important;
 }
 
-#wrapper md-card md-card-title {
+#wrapper md-card md-card-title+md-card-content {
+    /*padding-top: 0;*/
+    padding: 3rem 6rem!important;
+}
+
+#wrapper #jobAd md-card-title {
 	background-color: darkseagreen;
 	color: white;
-	margin-bottom: 2rem;
+	/*margin-bottom: 2rem;*/
+	text-align: center;
+}
+
+/* ReqAd Information Card */
+#wrapper #reqAd md-card-title {
+	background-color: lightseagreen;
+	color: white;
+	/*margin-bottom: 2rem;*/
+	/*text-align: center;*/
+}
+
+/* ResAd Information Card */
+#wrapper #resAd md-card-title {
+	background-color: blueviolet;
+	color: white;
+	/*margin-bottom: 2rem;*/
+	/*text-align: center;*/
+}
+
+/* HisAd Information Card */
+#wrapper #hisAd md-card-title {
+	background-color: lightslategrey;
+	color: white;
+	/*margin-bottom: 2rem;*/
+	/*text-align: center;*/
+}
+
+/* FontAwesome Plus Icon */
+#wrapper #resAd md-card-title .fa-plus-square:before,
+#wrapper #reqAd md-card-title .fa-plus-square:before
+ {
+    content: "\f0fe";
+    padding: 0rem 0.3rem 0rem .3rem;
 }
 
 
-Media Query
-Desktop
+
+/*Media Query*/
+/*Desktop*/
 @media only screen and (max-width: 961px) {
 
 }
 
-Tablet
+/*Tablet*/
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-  #wrapper md-card {
-        margin: 5rem!important;
-    }
+	#wrapper md-card {
+	    margin: 5rem!important;
+	}
+
+	/* JobAd Information Card */
+	#wrapper #jobAd,
+	#wrapper #reqAd,
+	#wrapper #resAd,
+	#wrapper #hisAd
+	{
+	    margin: 2rem 5rem!important;
+	}
 }
 
-Mobile
+/*Mobile*/
 @media only screen and (max-width: 400px) {
-  #wrapper md-card {
-      margin: 3rem!important;
-  }
+	#wrapper md-card {
+	  margin: 3rem!important;
+	}
+/* JobAd Information Card */
+	#wrapper #jobAd,
+	#wrapper #reqAd,
+	#wrapper #resAd,
+	#wrapper #hisAd
+	{
+	    margin: 2rem 2rem!important;
+	}
+	
 } 
+
+
+
+fieldset{
+    background: #FCFCFC;
+    padding: 16px;
+    border: 1px solid #D5D5D5;
+}
+.addfields{
+    margin: 10px 0;
+}
+
+.msg {
+    padding: 10px;
+    background: rgb(227, 250, 227);
+    border: 1px solid rgb(171, 239, 171);
+    color: rgb(9, 56, 9);
+}
+.remove{
+    background: #ccc;
+    color: #C76868;
+    font-weight: bold;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 8px 5px;
+    vertical-align: top;
+    line-height: 100%;   
+}
+input[type="text"],
+select{
+    padding:5px;
+}
