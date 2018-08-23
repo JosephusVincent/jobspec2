@@ -19,7 +19,7 @@
 <body ng-app="newApp">
 	<!-- Toolbar -->
 	<md-toolbar layout-align="center center">
-		<h1>Back-Office Adminstrator</h1>
+		<h1>AngularJS Material Design</h1>
 	</md-toolbar>
 	<div id="wrapper">
 		<form name="userForm">
@@ -144,7 +144,7 @@
 					<md-card-title-text layout-align=" center">
 						<span class="md-headline">Requirements</span>
 					</md-card-title-text>
-					<md-button class="md-raised"><i class="far fa-plus-square"></i>Add Requirements</md-button>
+					<md-button class="md-raised" ng-click="addNewColumn()"><i class="far fa-plus-square"></i>Add Requirements</md-button>
 				</md-card-title> 
 				<md-card-content>
 					<div layout="column">
@@ -154,36 +154,52 @@
 
 								<select name="data_type" required> 
 									<option value="">Data Type</option> 
-									<option ng-repeat="type in dataType"  value="{{type.dataTypeName}}" ng-model="dataType.id">{{type.dataTypeName}}</option> 
+									<option ng-repeat="type in reqType"  value="{{type.name}}" ng-model="dataType.id">{{type.name}}</option> 
 								</select> 
+								<button class="remove"  ng-click="removeColumn($index)">x</button> 
 							</fieldset>
-							<button class="addfields" ng-click="addNewColumn()">Add Column</button>
-							<button class="addfields" ng-click="setupNewGrid">Validate</button>
 						</form>    
-						<h4 class="msg" ng-model="column.textareaValue">TextareaValue : {{column.textareaValue}}</h4>
-						<h4 class="msg">Column Name Validation : {{setupNewGrid.columnName.$valid}}</h4>
-						<h4 class="msg">Data Type Selected ID: {{dataType.id}} </h4>
-						<div class="msg">{{columns}}</div>
+						<!-- <div class="msg">{{columns}}</div> -->
 					</div>
 				</md-card-content>
 			</md-card>
 
 			<!-- Responsibilities Card -->
-			<md-card id="resAd" ng-controller="dialogCtrl">
+			<md-card id="resAd" ng-controller="resAd">
 				<md-card-title>
 					<md-card-title-text layout-align=" center">
 						<span class="md-headline">Responsibilities</span>
 					</md-card-title-text>
-					<md-button class="md-raised" ng-click="showPrompt($event)"><i class="far fa-plus-square" ></i>Add Responsibility</md-button>
+					<md-button class="md-raised"><i class="far fa-plus-square" ></i>Add Responsibility</md-button>
 				</md-card-title>
-				<md-card-content>
-					<div layout="column">
-						<div ng-if="status" id="status">
-							<b layout="row" layout-align="center center" class="md-padding">
-								{{status}}
-							</b>
+				<md-card-content ng-cloak layout="row" layout-align="center center" layout-padding>
+<!-- 					<form name="myForm">
+ -->
+						<div layout="row" layout-align="center" flex>
+
+							<md-input-container flex="48">
+								<label>Column Name</label>
+								<input type="text" name="quest" ng-model="quest" required />
+							</md-input-container>
+
+							<md-input-container flex="48">
+								<label>Please Select Rating</label>
+								<md-select name="favoriteColor" ng-model="favoriteColor" required>
+									<md-option value="red">Red</md-option>
+									<md-option value="blue">Blue</md-option>
+									<md-option value="green">Green</md-option>
+								</md-select>
+								<div class="errors" ng-messages="myForm.favoriteColor.$error">
+									<div ng-message="required">Required</div>
+								</div>
+							</md-input-container>
+							<md-input-container flex="4">
+								<button class="remove"  ng-click="removeColumn($index)">x</button>
+							</md-input-container>
+
 						</div>
-					</div>
+
+					<!-- </form> -->
 				</md-card-content>
 			</md-card>
 
@@ -232,12 +248,7 @@
 			</md-card-content>
 		</form>
 
-		
-
 	</div>
-
-
-	
 
 	<!-- Angular Material requires Angular.js Libraries -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>

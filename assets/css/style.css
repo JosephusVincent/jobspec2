@@ -66,6 +66,7 @@
  {
     content: "\f0fe";
     padding: 0rem 0.3rem 0rem .3rem;
+    font-weight: bold;
 }
 
 
@@ -135,7 +136,7 @@ fieldset{
     display: inline-block;
     padding: 2px 8px 5px;
     vertical-align: top;
-    line-height: 100%;   
+    line-height: 100%;  
 }
 input[type="text"],
 select{

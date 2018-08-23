@@ -150,8 +150,8 @@
         { name: 'Yes' },
         { name: 'No' }];
     });
-    
 
+    // Dialog button
     app.controller('dialogCtrl', function($scope, $mdDialog){
         $scope.status = '  ';
         $scope.customFullscreen = false;
@@ -177,13 +177,90 @@
         };
     });
 
+    // <!-- Responsibilities Card -->
+    //     <md-card id="resAd" ng-controller="dialogCtrl">
+    //         <md-card-title>
+    //             <md-card-title-text layout-align=" center">
+    //                 <span class="md-headline">Responsibilities</span>
+    //             </md-card-title-text>
+    //             <md-button class="md-raised" ng-click="showPrompt($event)"><i class="far fa-plus-square" ></i>Add Responsibility</md-button>
+    //         </md-card-title>
+    //         <md-card-content>
+    //             <div layout="column">
+    //                 <div ng-if="status" id="status">
+    //                     <b layout="row" layout-align="center center" class="md-padding">
+    //                         {{status}}
+    //                     </b>
+    //                 </div>
+    //             </div>
+    //         </md-card-content>
+    //     </md-card>
 
     // tinymce.init({selector:'textarea',
     //     plugins: "code image"
     // });
 
-    app.controller('MainCtrl', function($scope) {
 
+    // Responsibilities Card Fieldset
+    // Add Column 
+    // app.controller('resAd', function($scope){
+
+    // });
+
+    // Responsibilities Exercise
+    app.controller('resAd', function($scope) {
+      $scope.clearValue = function() {
+        $scope.quest = undefined;
+        $scope.favoriteColor = undefined;
+        $scope.myForm.$setPristine();
+      };
+      $scope.save = function() {
+        if ($scope.myForm.$valid) {
+          $scope.myForm.$setSubmitted();
+          alert('Form was valid.');
+        } else {
+          alert('Form was invalid!');
+        }
+      };
+    });
+
+
+    // Requirements Card Fieldset
+    // Add Column 
+    app.controller('reqAd', function($scope){
+        $scope.reqType = [
+            {name:'Beginner'},
+            {name:'Intermediate'},
+            {name:'Advanced'}
+        ];
+
+        $scope.columns = [{
+            colId: 'col1', 
+            name:'',
+            dataType:[]
+        }];
+
+        $scope.addNewColumn = function() {
+            var newItemNo = $scope.columns.length+1;
+                $scope.columns.push(newItemNo);
+        };
+
+        $scope.removeColumn = function(index) {
+            // remove the row specified in index
+            $scope.columns.splice( index, 1);
+            // if no rows left in the array create a blank array
+        if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
+            alert('no rec');
+                $scope.columns.push = [{"colId":"col1"}];
+            }
+        };
+    });
+
+
+
+    // History Card Feildset
+    // Add Column
+    app.controller('MainCtrl', function($scope) {
     //  $scope.dataType = ['type1', 'type2', 'type'];
     $scope.dataType = [
         {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
@@ -197,25 +274,15 @@
         var newItemNo = $scope.columns.length+1;
             $scope.columns.push({'colId':'col'+newItemNo});
         };
-    });
 
-
-
-
-
-    app.controller('reqAd', function($scope){
-        //  $scope.dataType = ['type1', 'type2', 'type'];
-        // $scope.dataType = [
-        //     {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
-        //     {id: 2, colId:['col2', 'col3'], dataTypeName: 'Alpha'},
-        //     {id: 3, colId:['col5', 'col6', 'col7', 'col8'], dataTypeName: 'List Value'}
-        //     ];
-
-        $scope.columns = [];
-
-        $scope.addNewColumn = function() {
-            var newItemNo = $scope.columns.length+1;
-                $scope.columns.push(newItemNo);
+    $scope.removeColumn = function(index) {
+        // remove the row specified in index
+        $scope.columns.splice( index, 1);
+        // if no rows left in the array create a blank array
+        if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
+          alert('no rec');
+          $scope.columns.push = [{"colId":"col1"}];
+        }
         };
     });
 
