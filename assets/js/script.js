@@ -110,7 +110,7 @@
       { category: 'Wri', name: 'Sales and Business Marketing Writers' },
       { category: 'Wri', name: 'SEO Writing' }
       ];
-  });
+    });
 
     // Classification Controller
     app.controller('SelectClass', function($scope) {
@@ -204,26 +204,7 @@
     // Responsibilities Card Fieldset
     // Add Column 
     // app.controller('resAd', function($scope){
-
     // });
-
-    // Responsibilities Exercise
-    app.controller('resAd', function($scope) {
-      $scope.clearValue = function() {
-        $scope.quest = undefined;
-        $scope.favoriteColor = undefined;
-        $scope.myForm.$setPristine();
-      };
-      $scope.save = function() {
-        if ($scope.myForm.$valid) {
-          $scope.myForm.$setSubmitted();
-          alert('Form was valid.');
-        } else {
-          alert('Form was invalid!');
-        }
-      };
-    });
-
 
     // Requirements Card Fieldset
     // Add Column 
@@ -245,6 +226,7 @@
                 $scope.columns.push(newItemNo);
         };
 
+        // Remove Column
         $scope.removeColumn = function(index) {
             // remove the row specified in index
             $scope.columns.splice( index, 1);
@@ -256,6 +238,54 @@
         };
     });
 
+    // Responsibilities Exercise
+    // app.controller('resAd', function($scope) {
+    //   $scope.clearValue = function() {
+    //     $scope.quest = undefined;
+    //     $scope.favoriteColor = undefined;
+    //     $scope.myForm.$setPristine();
+    //   };
+    //   $scope.save = function() {
+    //     if ($scope.myForm.$valid) {
+    //       $scope.myForm.$setSubmitted();
+    //       alert('Form was valid.');
+    //     } else {
+    //       alert('Form was invalid!');
+    //     }
+    //   };
+    // });
+
+    // Responsibilities Card Fields
+    app.controller('resAd', function($scope) {
+        $scope.resType = [
+            {name:'Beginner'},
+            {name:'Intermediate'},
+            {name:'Advanced'}
+        ];
+
+        $scope.columns = [{
+            colId: 'col1', 
+            name:'',
+            dataType:[]
+        }];
+
+        $scope.addNewColumn = function() {
+            var newItemNo = $scope.columns.length+1;
+                $scope.columns.push(newItemNo);
+        };
+
+        // Remove Column
+        $scope.removeColumn = function(index) {
+            // remove the row specified in index
+            $scope.columns.splice( index, 1);
+            // if no rows left in the array create a blank array
+        if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
+            alert('no rec');
+                $scope.columns.push = [{"colId":"col1"}];
+            }
+        };
+    });
+    
 
 
     // History Card Feildset
