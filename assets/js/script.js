@@ -1,6 +1,52 @@
-	app = angular.module("newApp", ["ngMaterial", 'ngMessages']).run(function(){
-		console.log("newApp is running!");
-	});
+    app = angular.module("newApp", ['ngMaterial', 'ngRoute']).run(function(){
+    	console.log("newApp is running!");
+    });
+
+    // var app = angular.module("newApp", ['ngRoute']);
+    // app.run(function(){
+    //     console.log("newApp is running!");
+    // });
+
+    app.controller('btnLinks', function(){
+       
+    });
+
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/", {
+                templateUrl: "./home.html"
+            }) 
+            .when("/create", {
+                templateUrl: "./create.html"
+            })
+            .when("/updateAds", {
+                templateUrl : "./updateAd.html"
+            });
+    });
+
+
+// var app = angular.module("newApp", ["ngRoute"]);
+
+// app.config(function($routeProvider) {
+//     $routeProvider
+//     .when("/", {
+//         templateUrl : "home.html.txt"
+//     })
+//     .when("/updateAds", {
+//         templateUrl : "updateAd.html"
+//     })
+//     .when("/green", {
+//         templateUrl : "green.htm"
+//     })
+//     .when("/blue", {
+//         templateUrl : "blue.htm"
+//     });
+
+//     console.log('waaat')
+// });
+
+
+    //-------------------Update JobAds --------------------
 
     // Category Controller
     app.controller('SelectCategory', function($scope) {
@@ -286,8 +332,6 @@
         };
     });
     
-
-
     // History Card Feildset
     // Add Column
     app.controller('MainCtrl', function($scope) {
