@@ -7,43 +7,22 @@
     //     console.log("newApp is running!");
     // });
 
-    app.controller('btnLinks', function(){
-       
-    });
+    app.controller('btnLinks', function(){});
 
     app.config(function($routeProvider) {
-        $routeProvider
-            .when("/", {
-                templateUrl: "./home.html"
-            }) 
-            .when("/create", {
-                templateUrl: "./create.html"
-            })
-            .when("/updateAds", {
-                templateUrl : "./updateAd.html"
-            });
+      $routeProvider
+      .when("/", {
+        templateUrl: "./templates/home.html"
+      }) 
+      .when("/create", {
+        templateUrl: "./templates/create.html"
+      })
+      .when("/update", {
+        templateUrl: "./templates/update.html"
+      });
     });
 
 
-// var app = angular.module("newApp", ["ngRoute"]);
-
-// app.config(function($routeProvider) {
-//     $routeProvider
-//     .when("/", {
-//         templateUrl : "home.html.txt"
-//     })
-//     .when("/updateAds", {
-//         templateUrl : "updateAd.html"
-//     })
-//     .when("/green", {
-//         templateUrl : "green.htm"
-//     })
-//     .when("/blue", {
-//         templateUrl : "blue.htm"
-//     });
-
-//     console.log('waaat')
-// });
 
 
     //-------------------Update JobAds --------------------
@@ -154,55 +133,57 @@
       { category: 'Wri', name: 'Technical and Manual Writing' },
       { category: 'Wri', name: 'Blogging' },
       { category: 'Wri', name: 'Sales and Business Marketing Writers' },
-      { category: 'Wri', name: 'SEO Writing' }
-      ];
+      { category: 'Wri', name: 'SEO Writing' }];
     });
 
     // Classification Controller
     app.controller('SelectClass', function($scope) {
-        $scope.jobClass = [
-        { name: 'I.T.'},
-        { name: 'Non I.T.'}];
+      $scope.jobClass = [
+      { name: 'I.T.'},
+      { name: 'Non I.T.'}];
     });
 
     // Outsourcing Controller
     app.controller('SelectOModel', function($scope) {
-        $scope.OM = [
-        { name : 'Home Office' },
-        { name : 'Office Location' },
-        { name : 'Project Based' }];
+      $scope.OM = [
+      { name : 'Home Office' },
+      { name : 'Office Location' },
+      { name : 'Project Based' }];
     });
 
     // Company Controller
     app.controller('SelectCompany', function($scope) {
-        $scope.jobComp = [
-        { name: 'RemoteStaff Inc.' },
-        { name: 'RemoteStaff client' },
-        { name: 'Realestate.ph' }
-        ];
+      $scope.jobComp = [
+      { name: 'RemoteStaff Inc.' },
+      { name: 'RemoteStaff client' },
+      { name: 'Realestate.ph' }
+      ];
     });
 
     // Status Controller
     app.controller('SelectStatus', function($scope) {
-        $scope.jobStatus = [
-        { name: 'New' },
-        { name: 'Archive' },
-        { name: 'Active' }];
+      $scope.jobStatus = [
+      { name: 'New' },
+      { name: 'Archive' },
+      { name: 'Active' }];
     });
 
     // Show Status Controller
     app.controller('SelectShowStatus', function($scope) {
-        $scope.jobShowStatus = [
-        { name: 'Yes' },
-        { name: 'No' }];
+      $scope.jobShowStatus = [
+      { name: 'Yes' },
+      { name: 'No' }];
     });
+
+
+
 
     // Dialog button
     app.controller('dialogCtrl', function($scope, $mdDialog){
-        $scope.status = '  ';
-        $scope.customFullscreen = false;
+      $scope.status = '  ';
+      $scope.customFullscreen = false;
 
-        $scope.showPrompt = function(ev) {
+      $scope.showPrompt = function(ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
         .title('Add Requirements')
@@ -216,12 +197,62 @@
         .cancel('Cancel');
 
         $mdDialog.show(confirm).then(function(result) {
-            $scope.status = result;
-            }, function() {
-              $scope.status = 'You didn\'t name your dog.';
-          });
-        };
+          $scope.status = result;
+        }, function() {
+          $scope.status = 'You didn\'t name your dog.';
+        });
+      };
     });
+
+
+  // ------------ Get Selected ID Data ----------------- 
+  app.controller('myCtrl', function($scope, $http) {
+    $http.get("http://localhost:8000/falcon/things").then(function(data){
+      $scope.details = data.data;
+      console.log($scope.details);
+    });
+
+    // Get Choosen Doc ID
+
+    $scope.passNewID = {}
+    $scope.getId = function(newId) {
+      $scope.passNewID.key = ""
+      $scope.passNewID = newId;
+      // console.log("Choosen ID : "+newId);
+
+      // console.log($scope.passNewID);
+      // $http.post("http://localhost:8000/falcon/getSelectedData",($scope.passNewID));
+
+      console.log(JSON.stringify($scope.passNewID));
+
+      
+      $http.put('http://localhost:8000/falcon/getSelectedDatas', JSON.stringify($scope.passNewID));
+
+      $http.get("http://localhost:8000/falcon/getSelectedDatas").then(function(result){
+        $scope.selectedID = result;
+        console.log($scope.selectedID);
+      });
+
+    };
+
+    
+
+  });
+
+
+
+
+//   app.controller('Ctrl', function($scope) {
+//     $scope.tasks = [{id:1,'name':'test1'}, {id:2,'name':'test2'}, {id:3,'name':'test3'}];
+      
+//     $scope.removeTask = function(taskId){
+//       alert("Task Id is "+taskId);
+//       console.log(taskId);
+//     };
+// });
+
+
+
 
     // <!-- Responsibilities Card -->
     //     <md-card id="resAd" ng-controller="dialogCtrl">
@@ -255,34 +286,34 @@
     // Requirements Card Fieldset
     // Add Column 
     app.controller('reqAd', function($scope){
-        $scope.reqType = [
-            {name:'Beginner'},
-            {name:'Intermediate'},
-            {name:'Advanced'}
-        ];
+      $scope.reqType = [
+      {name:'Beginner'},
+      {name:'Intermediate'},
+      {name:'Advanced'}
+      ];
 
-        $scope.columns = [{
-            colId: 'col1', 
-            name:'',
-            dataType:[]
-        }];
+      $scope.columns = [{
+        colId: 'col1', 
+        name:'',
+        dataType:[]
+      }];
 
-        $scope.addNewColumn = function() {
-            var newItemNo = $scope.columns.length+1;
-                $scope.columns.push(newItemNo);
-        };
+      $scope.addNewColumn = function() {
+        var newItemNo = $scope.columns.length+1;
+        $scope.columns.push(newItemNo);
+      };
 
         // Remove Column
         $scope.removeColumn = function(index) {
             // remove the row specified in index
             $scope.columns.splice( index, 1);
             // if no rows left in the array create a blank array
-        if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
-            alert('no rec');
-                $scope.columns.push = [{"colId":"col1"}];
+            if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
+              alert('no rec');
+              $scope.columns.push = [{"colId":"col1"}];
             }
-        };
-    });
+          };
+        });
 
     // Responsibilities Exercise
     // app.controller('resAd', function($scope) {
@@ -303,51 +334,51 @@
 
     // Responsibilities Card Fields
     app.controller('resAd', function($scope) {
-        $scope.resType = [
-            {name:'Beginner'},
-            {name:'Intermediate'},
-            {name:'Advanced'}
-        ];
+      $scope.resType = [
+      {name:'Beginner'},
+      {name:'Intermediate'},
+      {name:'Advanced'}
+      ];
 
-        $scope.columns = [{
-            colId: 'col1', 
-            name:'',
-            dataType:[]
-        }];
+      $scope.columns = [{
+        colId: 'col1', 
+        name:'',
+        dataType:[]
+      }];
 
-        $scope.addNewColumn = function() {
-            var newItemNo = $scope.columns.length+1;
-                $scope.columns.push(newItemNo);
-        };
+      $scope.addNewColumn = function() {
+        var newItemNo = $scope.columns.length+1;
+        $scope.columns.push(newItemNo);
+      };
 
         // Remove Column
         $scope.removeColumn = function(index) {
             // remove the row specified in index
             $scope.columns.splice( index, 1);
             // if no rows left in the array create a blank array
-        if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
-            alert('no rec');
-                $scope.columns.push = [{"colId":"col1"}];
+            if ( $scope.columns.length() === 0 || $scope.columns.length() == null){
+              alert('no rec');
+              $scope.columns.push = [{"colId":"col1"}];
             }
-        };
-    });
+          };
+        });
     
     // History Card Feildset
     // Add Column
     app.controller('MainCtrl', function($scope) {
     //  $scope.dataType = ['type1', 'type2', 'type'];
     $scope.dataType = [
-        {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
-        {id: 2, colId:['col2', 'col3'], dataTypeName: 'Alpha'},
-        {id: 3, colId:['col5', 'col6', 'col7', 'col8'], dataTypeName: 'List Value'}
-        ];
+    {id: 1, colId:['col1', 'col4'], dataTypeName: 'Date'},
+    {id: 2, colId:['col2', 'col3'], dataTypeName: 'Alpha'},
+    {id: 3, colId:['col5', 'col6', 'col7', 'col8'], dataTypeName: 'List Value'}
+    ];
 
     $scope.columns = [{colId: 'col1', name:'', dataType:[], dataFormat:'',  excludedChar:'', maxLength:'', isKeyField:false, isKeyRequired:false }];
 
     $scope.addNewColumn = function() {
-        var newItemNo = $scope.columns.length+1;
-            $scope.columns.push({'colId':'col'+newItemNo});
-        };
+      var newItemNo = $scope.columns.length+1;
+      $scope.columns.push({'colId':'col'+newItemNo});
+    };
 
     $scope.removeColumn = function(index) {
         // remove the row specified in index
@@ -357,6 +388,6 @@
           alert('no rec');
           $scope.columns.push = [{"colId":"col1"}];
         }
-        };
+      };
     });
 

@@ -1,0 +1,24 @@
+<h1>Read View</h1>
+
+<div ng-controller="myCtrl">
+	<form>
+		<p ng-repeat="item in details">
+
+			<b>ID :</b> <span ng-model="ret_ID">{{ item._id }}</span>
+			<!-- <input type="number" ng-value="{{ item._id }}"> -->
+
+		<!-- 	<input type="number" value="{{item._id}}" hidden> -->
+			<md-button type="button" ng-click="getId(item._id);" class="md-raised md-warn">Update</md-button>
+
+			<br>
+		</p>
+
+	</form>
+</div>
+
+<!-- 
+<div ng-controller="Ctrl">
+  <div ng-repeat="task in tasks">
+   <button ng-click="removeTask(task.id);">remove</button>
+  </div>
+<div> -->
