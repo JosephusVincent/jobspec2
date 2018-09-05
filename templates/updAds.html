@@ -1,9 +1,12 @@
+<div id="rec_upd_jobspec">
 
-	<!-- Toolbar -->
-	<md-toolbar layout-align="center center">
-		<h1>AngularJS Material Design</h1>
+	<md-toolbar layout-align="center center" class="md-warn">
+		<h1>Update Advertisement</h1>
 	</md-toolbar>
-	<form name="userForm">
+
+<!-- Update Advertisement Template -->
+<div id="updJobAds">
+	<form name="userForm" ng-controller="populateJobAds">
 		<!-- Job Ad Information Card -->
 		<md-card id="jobAd">
 			<md-card-title>
@@ -15,18 +18,24 @@
 				<div layout="column">
 					<!-- Ad Title -->
 					<md-input-container>
-						<label>Ad Title</label>
-						<input type="text" ng-model="user.name">
+						<label>Ad Title </label>
+						<input type="text" value="{{displayDoc.data.ad_job_or_title}}">
 					</md-input-container>
-					<!-- Leads -->					
+					<!-- Leads					 -->
 					<md-input-container>
 						<label>Leads</label>
-						<input type="text" ng-model="user.username" disabled>
+						<input type="text" value="{{displayDoc.data.leads_or_client}}" disabled>
 					</md-input-container>     
 					<!-- Category -->
-					<md-input-container ng-controller="SelectCategory" ng-cloak>
+					<md-input-container ng-cloak>
 						<label>Category</label>
-						<md-select ng-model="cat">
+						<md-select ng-model="cat" ng-value="{{displayDoc.data.category}}" placeholder="dfdsfdfd">
+							
+							<!-- Selected Doc Category -->
+							<md-optgroup>
+								<md-option ng-value="{{displayDoc.data.category}}" selected>{{displayDoc.data.category}}</md-option>
+							</md-optgroup>
+
 							<md-optgroup label="Account & Bookkeeping">
 								<md-option ng-value="cat.name" ng-repeat="cat in jobcat | filter: {category: 'A & B' }">{{cat.name}}</md-option>
 							</md-optgroup>
@@ -75,43 +84,55 @@
 						</md-select>
 					</md-input-container>
 					<!-- Classification -->
-					<md-input-container ng-controller="SelectClass">
+					<md-input-container>
 						<label>Classification</label>
 						<md-select ng-model="class">
+
+							<!-- Selected Classification -->
+							<md-optgroup>
+								<md-option ng-value="{{displayDoc.data.classification}}" selected>{{displayDoc.data.classification}}
+							</md-option>
+
+							</md-optgroup>
 							<md-option ng-value="class.name" ng-repeat="class in jobClass">{{class.name}}</md-option>
 						</md-select>
 					</md-input-container>
 					<!-- Outsourcing Model -->
-					<md-input-container ng-controller="SelectOModel">
+					<md-input-container>
 						<label>Outsourcing Model</label>
 						<md-select ng-model="O_model">
+
+							<md-option ng-value="{{displayDoc.data.out_sourcing_model}}" selected>{{displayDoc.data.out_sourcing_model}}</md-option>
+
 							<md-option ng-value="O_model.name" ng-repeat="O_model in OM">{{O_model.name}}</md-option>
 						</md-select>	
 					</md-input-container>
 					<!-- Company -->
-					<md-input-container ng-controller="SelectCompany">
+					<md-input-container>
 						<label>Company</label>
 						<md-select ng-model="comp">
+							<md-option ng-value="{{displayDoc.data.company}}">{{displayDoc.data.company}}</md-option>
 							<md-option ng-value="comp.name" ng-repeat="comp in jobComp">{{comp.name}}</md-option>
 						</md-select>
 					</md-input-container>
 					<!-- Heading -->
 					<md-input-container>
 						<label>Heading</label>
-						<!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-						<input type="text">
+						<textarea name="" id="textHeading" cols="30" rows="10">{{displayDoc.data.heading}}</textarea>
 					</md-input-container>
 					<!-- Status -->
-					<md-input-container ng-controller="SelectStatus">
+					<md-input-container>
 						<label>Status</label>
 						<md-select name="type" ng-model="jStat">
+							<md-option ng-value="{{displayDoc.data.status}}" aria-label>{{displayDoc.data.status}}</md-option>
 							<md-option ng-value="jStat.name" ng-repeat="jStat in jobStatus">{{jStat.name}}</md-option>
 						</md-select>
 					</md-input-container>
 					<!-- Show Status -->
-					<md-input-container ng-controller="SelectShowStatus">
+					<md-input-container>
 						<label>Show Status</label>
 						<md-select name="type" ng-model="jShowStat">
+							<md-option ng-value="{{displayDoc.data.classification}}" aria-label>{{displayDoc.data.show_status}}</md-option>
 							<md-option ng-value="jShowStat.name" ng-repeat="jShowStat in jobShowStatus" aria-label>{{ jShowStat.name }}</md-option>
 						</md-select>
 					</md-input-container>
@@ -128,28 +149,34 @@
 				<md-button class="md-raised" ng-click="addNewColumn()"><i class="far fa-plus-square"></i>Add Requirement</md-button>
 			</md-card-title>
 			<md-card-content layout-align="center center" flex>
+
 				<div layout="column" flex>
 					<div ng-repeat="column in columns" layout="row" layout-align="center center">
 						<md-input-container flex="90" md-no-float class="md-block">
 							<input type="text" name="quest" ng-model="quest" placeholder="Input Requirements" />
 						</md-input-container>
+
 						<md-input-container flex="30" md-no-float class="md-block">
-							<!-- <label>Please ` Rating</label> -->
+							<label>Please Select Rating</label>
 							<md-select name="favoriteColor" ng-model="favoriteColor" placeholder="Please Select Rating" layout-align="center center">
+
 								<md-option ng-repeat="type in reqType" layout-align="center center" value="{{type.name}}" ng-model="reqType.name">{{type.name}}</md-option>
+
 							</md-select>
 							<div class="errors" ng-messages="myForm.favoriteColor.$error">
 								<div ng-message="required">Required</div>
 							</div>
 						</md-input-container>
+
 						<md-input-container flex="4" class="btn-del">
 							<md-button class="md-fab md-mini md-danger" aria-label="Use Android" ng-click="removeColumn($index)">
-					            <i class="fas fa-times"></i>
-					        </md-button>
-							<!-- <button class="remove"  >x</button> -->
+								<i class="fas fa-times"></i>
+							</md-button>
 						</md-input-container>
+
 					</div>
-				</div>					
+				</div>		
+
 			</md-card-content>
 		</md-card>
 
@@ -169,16 +196,16 @@
 						</md-input-container>
 						<md-input-container flex="4" class="btn-del">
 							<md-button class="md-fab md-mini md-danger" aria-label="Use Android" ng-click="removeColumn($index)">
-					            <i class="fas fa-times"></i>
-					        </md-button>							
-					    </md-input-container>
+								<i class="fas fa-times"></i>
+							</md-button>							
+						</md-input-container>
 					</div>
 				</div>
 			</md-card-content>
 		</md-card>
 
 		<!-- History Card -->
-		<md-card id="hisAd" ng-controller="MainCtrl">
+		<md-card id="hisAd">
 			<md-card-title>
 				<md-card-title-text  layout-align="center center" >
 					<span class="md-headline">History</span>
@@ -186,7 +213,7 @@
 			</md-card-title>
 			<md-card-content>
 				<div layout="column">
-					
+
 				</div>
 			</md-card-content>
 		</md-card>
@@ -199,4 +226,6 @@
 			</md-card-actions>
 		</md-card-content>
 	</form>
+</div>
 
+</div>

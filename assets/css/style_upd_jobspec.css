@@ -1,0 +1,191 @@
+:root {
+    --main-bg-color: #efefef; 
+    --main-card-color: #e6e6e6;
+}
+
+#wrapper {	 
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	background-color: var(--main-bg-color);
+}
+
+/* All updJobAds Card Title */
+#wrapper #updJobAds md-card-title {
+	padding: .9rem;
+}
+
+/* All headline */
+#wrapper md-card-title-text .md-headline {
+	font-size: 25px!important;
+	padding-left: 1rem;
+}
+
+/*
+	Update Jobspecs
+*/
+#wrapper #updJobAds #jobAd,
+#wrapper #updJobAds #reqAd,
+#wrapper #updJobAds #resAd,
+#wrapper #updJobAds #hisAd
+{
+    margin: 2rem 9rem!important;
+}
+
+/* All Card Contents inside updJobAds */
+#wrapper #updJobAds md-card md-card-title+md-card-content {
+    padding: 2rem 6rem!important;
+}
+
+/* JobAd Information Card */
+#wrapper #updJobAds #jobAd md-card-content md-input-container {
+    margin: 12px 0;
+}
+
+
+#wrapper #updJobAds #jobAd md-card-title {
+	background-color: darkseagreen;
+	color: white;
+	text-align: center;
+}
+
+#wrapper #updJobAds #jobAd md-card-title-text .md-headline {
+	padding-left: 0rem!important;
+}
+
+
+/* Requirements Ad Information Card */
+#wrapper #updJobAds #reqAd md-card-title {
+	background-color: lightseagreen;
+	color: white;
+}
+
+#wrapper #updJobAds #reqAd md-card-content .layout-row  {
+	border: 1px solid #20b2aa52!important;
+	padding: .2rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #updJobAds #reqAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #updJobAds #reqAd md-card-content md-input-container.md-block:nth-child(1)  {
+    margin-top: 1.24rem;
+}
+
+#wrapper #updJobAds #reqAd md-card-content md-input-container.btn-del {
+	margin: 0;
+	padding: 0;
+}
+
+/* Responsibilities Ad Information Card */
+#wrapper #updJobAds #resAd md-card-title {
+	background-color: blueviolet;
+	color: white;
+}
+
+#wrapper #updJobAds #resAd md-card-content .layout-row {
+	border: 1px solid #8a2be275!important;
+	padding: 0rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #updJobAds #resAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #updJobAds #resAd md-card-content md-input-container.md-block:nth-child(1)  {
+	margin-top: 1.24rem;
+}
+
+#wrapper #updJobAds #resAd md-card-content md-input-container.btn-del {
+	margin: 0;
+	padding: 0;
+}
+
+/* HisAd Information Card */
+#wrapper #updJobAds #hisAd md-card-title {
+	background-color: lightslategrey;
+	color: white;
+}
+
+/*
+	Create Jobspecs
+*/
+
+/* All jobcrt Card Title */
+#wrapper #jobcrt md-card-title {
+	padding: .9rem;
+}
+
+#wrapper #jobcrt #cardStep2,
+#wrapper #jobcrt #cardStep2Ex
+{
+	margin: 2rem 9rem!important;
+}
+
+#wrapper #jobcrt md-card-title,
+#wrapper #jobcrt md-card-title {
+	color: white;
+	background-color: cadetblue;
+	text-align: center;
+}
+
+#wrapper #jobcrt md-card md-card-title+md-card-content {
+	padding: 2rem 6rem!important;
+}
+
+/* FontAwesome Plus Icon */
+#wrapper #updJobAds #resAd md-card-title .fa-plus-square:before,
+#wrapper #updJobAds #reqAd md-card-title .fa-plus-square:before
+ {
+    content: "\f0fe";
+    padding: 0rem 0.3rem 0rem .3rem;
+    font-weight: bold;
+}
+
+/*Media Query*/
+/*Desktop*/
+@media only screen and (max-width: 961px) {
+
+}
+
+/*Tablet*/
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+	#wrapper md-card {
+	    margin: 5rem!important;
+	}
+
+	/* JobAd Information Card */
+	#wrapper #updJobAds #jobAd,
+	#wrapper #updJobAds #reqAd,
+	#wrapper #updJobAds #resAd,
+	#wrapper #updJobAds #hisAd
+	{
+	    margin: 2rem 5rem!important;
+	}
+}
+
+/*Mobile*/
+@media only screen and (max-width: 400px) {
+	#wrapper md-card {
+	  margin: 3rem!important;
+	}
+/* JobAd Information Card */
+	#wrapper #updJobAds #jobAd,
+	#wrapper #updJobAds #reqAd,
+	#wrapper #updJobAds #resAd,
+	#wrapper #updJobAds #hisAd
+	{
+	    margin: 2rem 2rem!important;
+	}
+} 
+
+

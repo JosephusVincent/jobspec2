@@ -1,24 +1,58 @@
-<h1>Read View</h1>
+<div id="apply">
+	<md-toolbar layout-align="center center" class="md-primary">
+		<h1>Job List</h1>
+	</md-toolbar>
 
-<div ng-controller="myCtrl">
-	<form>
-		<p ng-repeat="item in details">
 
-			<b>ID :</b> <span ng-model="ret_ID">{{ item._id }}</span>
-			<!-- <input type="number" ng-value="{{ item._id }}"> -->
+	<md-card id="apply_card">
+		<md-card-title>
+			<md-card-title-text layout-align="center center">
+				<h3>Job Openings</h3>
+			</md-card-title-text>
+		</md-card-title>	
 
-		<!-- 	<input type="number" value="{{item._id}}" hidden> -->
-			<md-button type="button" ng-click="getId(item._id);" class="md-raised md-warn">Update</md-button>
+		<md-card-content ng-controller="myCtrl">
+			<div ng-repeat="item in details">
+				<md-input-container md-no-float class="md-block">
+					<!-- <p><b>ID : </b>{{ item._id }}</p> -->
+					<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
+					<br>
+					<p><b>Summary : </b> {{ item.job_summary }} </p>
+						<md-button class="md-raised md-primary" ng-click="showAdvanced($event,item)">Read More</md-button>
+					<!-- 			<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak> -->
+<!-- 
+						<div class="md-padding" id="popupContainer" ng-cloak> 
+							<md-button ng-click="getId(item);" type="button" value="item._id" >Read More</md-button>
 
-			<br>
-		</p>
+							Dialog
+							<div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+								<md-button id="clickbtn" class="md-primary md-raised" >
+									Custom Dialog
+								</md-button>
+							</div>
 
-	</form>
+				<div ng-repeat="select in selectedID">
+							<p>{{ select._id }}</p>
+						</div>
+					</div> -->
+				</md-input-container>
+				<md-divider ng-if="!$last"></md-divider>
+			</div>
+		</md-card-content>
+
+	</md-card>
 </div>
 
-<!-- 
-<div ng-controller="Ctrl">
-  <div ng-repeat="task in tasks">
-   <button ng-click="removeTask(task.id);">remove</button>
+
+<!-- <div ng-controller="myCtrl">
+  <div ng-repeat="task in details">
+   <button ng-click="getId(task._id);">remove</button>
   </div>
 <div> -->
+
+<!-- Dialog
+	<div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+		<md-button id="clickbtn" class="md-primary md-raised" ng-click="showAdvanced($event,item)">
+			Custom Dialog
+		</md-button>
+	</div> -->

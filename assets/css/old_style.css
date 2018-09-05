@@ -1,0 +1,153 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#wrapper {	 
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+}
+
+#wrapper #jobAd md-card-content md-input-container {
+    margin: 12px 0;
+}
+
+
+/* 
+	------------ Applicant ------------
+*/
+#wrapper #apply #apply_card {
+	width: 55rem;
+    margin: 2rem auto;
+}
+
+#wrapper #apply #apply_card md-card-title {
+	background-color : darkslateblue;
+	color: white;
+}
+
+#wrapper #apply #apply_card #clickbtn {
+	display: none;
+}
+
+
+/*
+	------------ Recruiter ------------
+ */
+#wrapper #rec_create #card_step2 {
+    width: 55rem;
+    margin: auto;
+}
+
+#wrapper #rec_create #card_step2 md-card-title {
+	background-color : darkslateblue;
+	color: white;
+}
+
+/* JobAd Information Card */
+#wrapper #jobAd,
+#wrapper #reqAd,
+#wrapper #resAd,
+#wrapper #hisAd
+{
+    margin: 2rem 9rem!important;
+}
+
+#wrapper md-card md-card-title+md-card-content {
+    padding: 2rem 5rem!important;
+}
+
+#wrapper #jobAd md-card-title {
+	background-color: darkseagreen;
+	color: white;
+	text-align: center;
+}
+
+#wrapper #jobAd #textHeading {
+	height: 155px!important;
+}
+
+/* Requirements Ad Information Card */
+#wrapper #reqAd md-card-title {
+	background-color: lightseagreen;
+	color: white;
+}
+
+#wrapper #reqAd md-card-content .layout-row  {
+	border: 1px solid #20b2aa52!important;
+	padding: .2rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #reqAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #reqAd md-card-content md-input-container.md-block:nth-child(1)  {
+    margin-top: 1.24rem;
+}
+
+#wrapper #reqAd md-card-content md-input-container.btn-del {
+	margin: 0;
+}
+
+
+/* Responsibilities Ad Information Card */
+#wrapper #resAd md-card-title {
+	background-color: blueviolet;
+	color: white;
+}
+
+#wrapper #resAd md-card-content .layout-row {
+	border: 1px solid #8a2be275!important;
+	padding: 0rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #resAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #resAd md-card-content md-input-container.md-block:nth-child(1)  {
+	margin-top: 1.24rem;
+}
+
+#wrapper #resAd md-card-content md-input-container.btn-del {
+	margin: 0;
+}
+
+
+/* HisAd Information Card */
+#wrapper #hisAd md-card-title {
+	background-color: lightslategrey;
+	color: white;
+}
+
+
+/* FontAwesome Plus Icon */
+#wrapper #resAd md-card-title .fa-plus-square:before,
+#wrapper #reqAd md-card-title .fa-plus-square:before
+ {
+    content: "\f0fe";
+    padding: 0rem 0.3rem 0rem .3rem;
+    font-weight: bold;
+}
+
+
+
+
+/* Dialog Display Design */
+ #cusDivider.ng-scope {
+	width: 95%;
+	margin: auto;
+}
+
+

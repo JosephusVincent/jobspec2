@@ -1,0 +1,81 @@
+<div id="rec_upd_jobspec">
+	<md-toolbar layout-align="center center" class="md-warn">
+		<h1>Update Jobspec</h1>
+	</md-toolbar>
+
+	<md-content ng-controller="dialogCtrl" class="md-padding" layout-xs="column" layout="row">	
+
+		<!-- Update Add -->
+		<md-card flex-xs flex-gt-xs="50" layout="column">
+			<md-card-title>
+				<md-card-title-text layout-align="center center">
+					
+				</md-card-title-text>
+			</md-card-title>	
+			<md-card-content ng-controller="RSR">
+				<h4>Required Skill Ratings</h4>
+				
+				<ul ng-repeat="rating in ratings">
+					<li>{{ rating.name }}</li>
+				</ul>
+				<h4>Required Task Ratings</h4>
+				<p>From 1 to 10, 10 being the hieghest in terms of importance.</p>
+				
+				
+				<md-card-actions layout="column" layout-align="start">
+					<md-button class="md-raised md-default" type="button" href="#!/updateAds">Update Advertisement</md-button>
+				</md-card-actions>
+				<p>Advertisement Status : <u>{{ disDoc.data.status }} </u></p>
+			</md-card-content>
+		</md-card>
+		
+		<!-- Edit Job Orders -->
+		<md-card flex-xs flex-gt-xs="50" layout="column">
+			<md-card-title>
+				<md-card-title-text layout-align="center center">
+					Job Order Details
+				</md-card-title-text>
+			</md-card-title>	
+
+			<md-card-content >
+				<md-button class="md-raised md-default" type="button" ng-click="showPrompt($event)">Edit Job Orders</md-button>
+				<div ng-if="status" id="status">
+					<b layout="row" layout-align="center center" class="md-padding">
+						{{status}}
+					</b>
+				</div>
+			</md-card-content>
+		</md-card>		
+
+	</md-content>
+
+
+
+	
+</div>
+
+<!-- 
+	<md-button class="md-raised md-primary" type="button" href="./rec_create.html">Create</md-button>
+	<md-button class="md-raised md-primary" type="button" href="./">Job Specs Link</md-button>
+-->
+
+
+	<!-- <form>
+		<p ng-repeat="item in details">
+	
+			<b>ID :</b> <span ng-model="ret_ID">{{ item._id }}</span>
+			<input type="number" ng-value="{{ item._id }}">
+	
+		<input type="number" value="{{item._id}}" hidden>
+			<md-button type="button" ng-click="getId(item._id);" class="md-raised md-">Details</md-button>
+	
+			<br>
+		</p>
+	
+	</form> -->
+<!-- 
+<div ng-controller="Ctrl">
+  <div ng-repeat="task in tasks">
+   <button ng-click="removeTask(task.id);">remove</button>
+  </div>
+<div> -->
