@@ -7,7 +7,7 @@
 	<md-card id="apply_card">
 		<md-card-title>
 			<md-card-title-text layout-align="center center">
-				<h3>Job Openings</h3>
+				<span class="md-headline">Job Openings</span>
 			</md-card-title-text>
 		</md-card-title>	
 
@@ -18,7 +18,9 @@
 					<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
 					<br>
 					<p><b>Summary : </b> {{ item.job_summary }} </p>
-						<md-button class="md-raised md-primary" ng-click="showAdvanced($event,item)">Read More</md-button>
+					<br>
+					<p><b>Status :</b> {{ item.status }}</p>
+					<md-button class="md-raised md-primary" ng-click="showAdvanced($event,item)">Read More</md-button>
 					<!-- 			<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak> -->
 <!-- 
 						<div class="md-padding" id="popupContainer" ng-cloak> 

@@ -16,7 +16,7 @@
 
 
 /* 
-	------------ Applicant ------------
+	-----------Display Jobspecs ------------
 */
 #wrapper #apply #apply_card {
 	width: 55rem;
@@ -31,106 +31,118 @@
 #wrapper #apply #apply_card #clickbtn {
 	display: none;
 }
-
-
 /*
-	------------ Recruiter ------------
- */
 #wrapper #rec_create #card_step2 {
     width: 55rem;
     margin: auto;
-}
+}*/
 
 #wrapper #rec_create #card_step2 md-card-title {
 	background-color : darkslateblue;
 	color: white;
 }
 
-/* JobAd Information Card */
-#wrapper #jobAd,
-#wrapper #reqAd,
-#wrapper #resAd,
-#wrapper #hisAd
+/* 
+	--------- UpdateAds JobAd ----------
+*/
+#wrapper #update #update_con #jobAd,
+#wrapper #update #update_con #reqAd,
+#wrapper #update #update_con #resAd,
+#wrapper #update #update_con #hisAd
 {
     margin: 2rem 9rem!important;
 }
 
-#wrapper md-card md-card-title+md-card-content {
+#wrapper #update #update_con md-card md-card-title+md-card-content {
     padding: 2rem 5rem!important;
 }
 
-#wrapper #jobAd md-card-title {
+#wrapper #update #update_con #jobAd md-card-title {
 	background-color: darkseagreen;
 	color: white;
 	text-align: center;
 }
 
-#wrapper #jobAd #textHeading {
+#wrapper #update #update_con #jobAd #textHeading {
 	height: 155px!important;
 }
 
 /* Requirements Ad Information Card */
-#wrapper #reqAd md-card-title {
+#wrapper #update #update_con #reqAd md-card-title {
 	background-color: lightseagreen;
 	color: white;
 }
 
-#wrapper #reqAd md-card-content .layout-row  {
+#wrapper #update #update_con #reqAd md-card-content .disCurReq  {
+	border: 1px solid #20b2aa4a!important;
+	padding: .2rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+	background-color: #20b2aa4a!important;
+}
+
+#wrapper #update #update_con #reqAd md-card-content .addNewReq  {
 	border: 1px solid #20b2aa52!important;
 	padding: .2rem 1rem;
 	margin: 0.5rem 0rem;
 	border-radius: .5rem;
 }
 
-#wrapper #reqAd md-card-content md-input-container.md-block {
+#wrapper #update #update_con #reqAd md-card-content md-input-container.md-block {
     padding: 0rem;
     padding-right: 1rem;
     margin: 0rem;
 }
 
-#wrapper #reqAd md-card-content md-input-container.md-block:nth-child(1)  {
+#wrapper #update #update_con #reqAd md-card-content md-input-container.md-block:nth-child(1)  {
     margin-top: 1.24rem;
 }
 
-#wrapper #reqAd md-card-content md-input-container.btn-del {
+#wrapper #update #update_con #reqAd md-card-content md-input-container.btn-del {
 	margin: 0;
 }
 
-
 /* Responsibilities Ad Information Card */
-#wrapper #resAd md-card-title {
+#wrapper #update #update_con #resAd md-card-title {
 	background-color: blueviolet;
 	color: white;
 }
 
-#wrapper #resAd md-card-content .layout-row {
-	border: 1px solid #8a2be275!important;
+#wrapper #update #update_con #resAd md-card-content .disCurRes {
+	border: 1px solid #8a2be236!important;
+	padding: 0rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+	background-color: #8a2be236!important;
+
+}
+
+#wrapper #update #update_con #resAd md-card-content .AddNewRes{
+	border: 1px solid #8a2be236!important;
 	padding: 0rem 1rem;
 	margin: 0.5rem 0rem;
 	border-radius: .5rem;
 }
 
-#wrapper #resAd md-card-content md-input-container.md-block {
+#wrapper #update #update_con #resAd md-card-content md-input-container.md-block {
     padding: 0rem;
     padding-right: 1rem;
     margin: 0rem;
 }
 
-#wrapper #resAd md-card-content md-input-container.md-block:nth-child(1)  {
+#wrapper #update #update_con #resAd md-card-content md-input-container.md-block:nth-child(1)  {
 	margin-top: 1.24rem;
 }
 
-#wrapper #resAd md-card-content md-input-container.btn-del {
+#wrapper #update #update_con #resAd md-card-content md-input-container.btn-del {
 	margin: 0;
 }
 
-
 /* HisAd Information Card */
-#wrapper #hisAd md-card-title {
+#wrapper #update #update_con #hisAd md-card-title {
 	background-color: lightslategrey;
 	color: white;
 }
-
 
 /* FontAwesome Plus Icon */
 #wrapper #resAd md-card-title .fa-plus-square:before,
@@ -141,13 +153,129 @@
     font-weight: bold;
 }
 
-
-
-
 /* Dialog Display Design */
  #cusDivider.ng-scope {
 	width: 95%;
 	margin: auto;
 }
 
+/* 
+	---------- Create JobAd -------------
+ */
+#wrapper #create #create_con #jobAd,
+#wrapper #create #create_con #reqAd,
+#wrapper #create #create_con #resAd,
+#wrapper #create #create_con #hisAd
+{
+    margin: 2rem 9rem!important;
+}
 
+#wrapper #create #create_con md-card md-card-title+md-card-content {
+    padding: 2rem 5rem!important;
+}
+
+#wrapper #create #create_con #jobAd md-card-title {
+	background-color: #ff5722db!important;
+	color: white;
+	text-align: center;
+}
+
+#wrapper #create #create_con #jobAd #textHeading {
+	height: 155px!important;
+}
+
+/* Requirements Ad Information Card */
+#wrapper #create #create_con #reqAd md-card-title {
+	background-color: lightseagreen;
+	color: white;
+}
+
+#wrapper #create #create_con #reqAd md-card-content .disCurReq  {
+	border: 1px solid #20b2aa4a!important;
+	padding: .2rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+	background-color: #20b2aa4a!important;
+}
+
+
+#wrapper #create #create_con #reqAd md-card-content .addNewReq  {
+	border: 1px solid #20b2aa52!important;
+	padding: .2rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #create #create_con #reqAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #create #create_con #reqAd md-card-content md-input-container.md-block:nth-child(1)  {
+    margin-top: 1.24rem;
+}
+
+#wrapper #create #create_con #reqAd md-card-content md-input-container.btn-del {
+	margin: 0;
+}
+
+/* Responsibilities Ad Information Card */
+#wrapper #create #create_con #resAd md-card-title {
+	background-color: blueviolet;
+	color: white;
+}
+
+#wrapper #create #create_con #resAd md-card-content .disCurRes {
+	border: 1px solid #8a2be236!important;
+	padding: 0rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+	background-color: #8a2be236!important;
+}
+
+#wrapper #create #create_con #resAd md-card-content .AddNewRes{
+	border: 1px solid #8a2be236!important;
+	padding: 0rem 1rem;
+	margin: 0.5rem 0rem;
+	border-radius: .5rem;
+}
+
+#wrapper #create #create_con #resAd md-card-content md-input-container.md-block {
+    padding: 0rem;
+    padding-right: 1rem;
+    margin: 0rem;
+}
+
+#wrapper #create #create_con #resAd md-card-content md-input-container.md-block:nth-child(1)  {
+	margin-top: 1.24rem;
+}
+
+#wrapper #create #create_con #resAd md-card-content md-input-container.btn-del {
+	margin: 0;
+}
+
+/* HisAd Information Card */
+#wrapper #create #create_con #hisAd md-card-title {
+	background-color: lightslategrey;
+	color: white;
+}
+
+/* 
+	------------ Archive ------------
+*/
+ #wrapper #archive #arc_card {
+	width: 55rem;
+    margin: 2rem auto;
+ }
+
+#wrapper #archive #arc_card md-card-title {
+	background-color : darkslateblue;
+	color: white;
+}
+
+/*
+#wrapper #archive #arc_card #clickbtn {
+	display: none;
+}
+*/

@@ -1,35 +1,36 @@
-<div id="rec_create">
+<div id="create">
 	<md-toolbar layout-align="center center" class="md-warn">
 		<h1>Create Jobspec</h1>
 	</md-toolbar>
 	
 
-	<!-- Update Advertisement Template -->
+	<!-- Create Advertisement Template -->
 	<div id="create_con">
 		<form name="userForm">
 			<!-- Job Ad Information Card -->
 			<md-card id="jobAd">
 				<md-card-title>
 					<md-card-title-text>
-						<span class="md-headline">Create  Job Specs</span>       
+						<span class="md-headline">Create Job Spec</span>       
 					</md-card-title-text>
 				</md-card-title>  
-				<md-card-content>
+				<md-card-content ng-controller="populateCrtJobAds">
 					<div layout="column">
 						<!-- Ad Title -->
 						<md-input-container>
-							<label>Ad Title</label>
-							<input type="text" ng-model="user.name">
+							<label>Ad Title </label>
+							<input type="text" name="AdTitle">
 						</md-input-container>
 						<!-- Leads					 -->
 						<md-input-container>
 							<label>Leads</label>
-							<input type="text" ng-model="user.username" disabled>
+							<input type="text" name="leads">
 						</md-input-container>     
 						<!-- Category -->
-						<md-input-container ng-controller="SelectCategory" ng-cloak>
+						<md-input-container ng-cloak>
 							<label>Category</label>
-							<md-select ng-model="cat">
+							<md-select ng-model="cat" placeholder="Category">
+
 								<md-optgroup label="Account & Bookkeeping">
 									<md-option ng-value="cat.name" ng-repeat="cat in jobcat | filter: {category: 'A & B' }">{{cat.name}}</md-option>
 								</md-optgroup>
@@ -78,21 +79,24 @@
 							</md-select>
 						</md-input-container>
 						<!-- Classification -->
-						<md-input-container ng-controller="SelectClass">
+						<md-input-container>
 							<label>Classification</label>
 							<md-select ng-model="class">
-								<md-option ng-value="class.name" ng-repeat="class in jobClass">{{class.name}}</md-option>
+								<!-- Selected Classification -->
+								<md-optgroup>
+									<md-option ng-value="class.name" ng-repeat="class in jobClass">{{class.name}}</md-option>
+								</md-optgroup>
 							</md-select>
 						</md-input-container>
 						<!-- Outsourcing Model -->
-						<md-input-container ng-controller="SelectOModel">
+						<md-input-container>
 							<label>Outsourcing Model</label>
 							<md-select ng-model="O_model">
 								<md-option ng-value="O_model.name" ng-repeat="O_model in OM">{{O_model.name}}</md-option>
 							</md-select>	
 						</md-input-container>
 						<!-- Company -->
-						<md-input-container ng-controller="SelectCompany">
+						<md-input-container>
 							<label>Company</label>
 							<md-select ng-model="comp">
 								<md-option ng-value="comp.name" ng-repeat="comp in jobComp">{{comp.name}}</md-option>
@@ -104,14 +108,14 @@
 							<textarea name="" id="textHeading" cols="30" rows="10"></textarea>
 						</md-input-container>
 						<!-- Status -->
-						<md-input-container ng-controller="SelectStatus">
+						<md-input-container>
 							<label>Status</label>
 							<md-select name="type" ng-model="jStat">
 								<md-option ng-value="jStat.name" ng-repeat="jStat in jobStatus">{{jStat.name}}</md-option>
 							</md-select>
 						</md-input-container>
 						<!-- Show Status -->
-						<md-input-container ng-controller="SelectShowStatus">
+						<md-input-container>
 							<label>Show Status</label>
 							<md-select name="type" ng-model="jShowStat">
 								<md-option ng-value="jShowStat.name" ng-repeat="jShowStat in jobShowStatus" aria-label>{{ jShowStat.name }}</md-option>
@@ -136,7 +140,7 @@
 								<input type="text" name="quest" ng-model="quest" placeholder="Input Requirements" />
 							</md-input-container>
 							<md-input-container flex="30" md-no-float class="md-block">
-								<label>Please ` Rating</label>
+								<label>Please Select Rating</label>
 								<md-select name="favoriteColor" ng-model="favoriteColor" placeholder="Please Select Rating" layout-align="center center">
 									<md-option ng-repeat="type in reqType" layout-align="center center" value="{{type.name}}" ng-model="reqType.name">{{type.name}}</md-option>
 								</md-select>
@@ -179,7 +183,7 @@
 			</md-card>
 
 			<!-- History Card -->
-			<md-card id="hisAd" ng-controller="MainCtrl">
+			<md-card id="hisAd">
 				<md-card-title>
 					<md-card-title-text  layout-align="center center" >
 						<span class="md-headline">History</span>
@@ -200,4 +204,5 @@
 			</md-card-content>
 		</form>
 	</div>
+
 </div>

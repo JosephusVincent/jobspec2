@@ -22,8 +22,6 @@
 <md-dialog-content>
       <div class="md-dialog-content">
       <h4>Job Details:</h4>
- <!--      </div> 
-      <div class="md-dialog-content"> -->
        <p>Working Status : <b>{{disDoc.data.working_status}}</b></p>
        <p>Level: <b>{{disDoc.data.level}}</b></p>
        <p>Work Schedule: <b>{{disDoc.data.working_time_zone}} {{disDoc.data.working_start_time}} - {{disDoc.data.working_end_time}}</b></p>
@@ -49,7 +47,7 @@
         <ul ng-repeat="goodHave in disDoc.data.requirement_good_to_have">
           <li>{{ goodHave }}</li>
         </ul>
-
+        
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row">
