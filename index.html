@@ -22,7 +22,7 @@
 
 	<div id="wrapper">
 		<md-toolbar layout-align="center center" class="md-toolbar md-raised">
-	
+
 			<h3>
 				<md-button class="md-raised md-default" type="button" href="#!/create">Create</md-button>
 				<md-button class="md-raised md-" type="button" href="#/!">View</md-button>
@@ -44,8 +44,21 @@
 	</section>
 </div> -->
 
-		<div ng-view></div>
-	</div>
+<div ng-view></div>
+
+<!-- <div ng-controller="SampleCtrl" >
+	<form ng-submit="addReqColumn()">
+		<fieldset  ng-repeat="column in columns">
+			<input type="text" name="columnName" ng-model="column.name" name="" placeholder="Column Name" required>
+
+			<button class="remove"  ng-click="removeReqColumn($index)">x</button> 
+		</fieldset>
+		<button class="addfields" ng-click="addNewReqColumn()">Add Column</button>
+		<button type="submit">Submit</button>
+	</form>    
+
+</div> -->
+</div>
 
 <!-- Angular Material requires Angular.js Libraries -->
 <script src="./assets/node_modules/angular/angular.min.js"></script>

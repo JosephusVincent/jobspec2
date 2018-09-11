@@ -1,6 +1,10 @@
-<div id="rec_upd_jobspec">
+<div id="rec_upd_jobspec" ng-controller="RSR">
 	<md-toolbar layout-align="center center" class="md-warn">
 		<h1>Update Jobspec</h1>
+	</md-toolbar>
+
+	<md-toolbar layout-align="center center" class="md-primary">
+		<h1>{{disDoc.data.ad_job_or_title}} - {{ disDoc.data.level + " Level"}} </h1>
 	</md-toolbar>
 
 	<md-content ng-controller="dialogCtrl" class="md-padding" layout-xs="column" layout="row">	
@@ -12,7 +16,7 @@
 					
 				</md-card-title-text>
 			</md-card-title>	
-			<md-card-content ng-controller="RSR">
+			<md-card-content>
 				<h4>Required Skill Ratings</h4>
 				
 				<ul ng-repeat="rating in ratings">
@@ -48,9 +52,6 @@
 		</md-card>		
 
 	</md-content>
-
-
-
 	
 </div>
 
