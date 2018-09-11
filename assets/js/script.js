@@ -1198,7 +1198,6 @@
         });
       $scope.data.requirements_skills = reqSkill;
 
- 
       //  ------ Duties & Responsibilities -------
       // Add Column Requirements
       $scope.dutRespCol = $scope.dutRespColumns;
