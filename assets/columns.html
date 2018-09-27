@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Final New Columns</title>
+
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body ng-app="newApp">
+
+  <form ng-submit="submit()" ng-controller="otherColumns">
+    <!-- Other Desired Preferred Skill -->
+    <md-card id="reqAd">
+      <md-card-title>
+        <md-card-title-text layout-align=" center">
+          <span class="md-headline">Other Desired or Preferred Skill</span>
+        </md-card-title-text>
+        <md-button class="md-raised" ng-click="addNewPreferredSkill()"><i class="far fa-plus-square"></i>Add Requirement</md-button>
+      </md-card-title>
+      <md-card-content layout-align="center center" flex>
+        <div layout="column" flex>
+          <div class="col-sm-4">
+
+            <!-- Old Data -->
+            <div ng-repeat="field in retrieved.data track by $index" layout="row" layout-align="center center">
+              <md-input-container flex="100" md-no-float class="md-block">
+                <input type="text" ng-model="retrieved.data[$index]" placeholder="Input Responsibilities" />
+              </md-input-container>
+
+              <md-input-container flex="4" class="btn-del">
+                <md-button class="md-fab md-mini md-danger" aria-label="Use Android" ng-click="removeOldData($index)">
+                  <i class="fas fa-times"></i>
+                </md-button>
+              </md-input-container>
+            </div>  
+
+            <!-- New Data -->
+            <div data-ng-repeat="field in PreferredSkillSet.preferredskills track by $index" layout="row" layout-align="center center">
+              <md-input-container flex="100" md-no-float class="md-block">
+                <input type="text" ng-model="PreferredSkillSet.preferredskills[$index]" placeholder="Input Responsibilities" />
+              </md-input-container>
+
+              <md-input-container flex="4" class="btn-del">
+                <md-button class="md-fab md-mini md-danger" aria-label="Use Android" ng-click="removePreferredSkill($index)">
+                  <i class="fas fa-times"></i>
+                </md-button>
+              </md-input-container>
+            </div>          
+
+          </div>
+        </div>
+      </md-card-content>
+      <!-- Action Button -->
+      <md-card-content>
+        <md-card-actions layout="row" layout-align=" center">
+          <md-button type="submit" class="md-raised md-primary">Create Job Ads</md-button>
+        </md-card-actions>
+      </md-card-content>
+    </md-card>
+  </form>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="./node_modules/angular-aria/angular-aria.min.js"></script>
+  <script src="./node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="./node_modules/angular-material/angular-material.min.js"></script>
+
+  <!-- Custom Script -->
+  <script type="text/javascript">
+
+    app = angular.module("newApp", ['ngMaterial','ngAria']).run(function(){
+      console.log("newApp is running!");
+    });
+
+    //  ------ Add/Remove Preferred Skill -------
+    app.controller('otherColumns', function($scope) {
+
+      $scope.retrieved = [];
+      $scope.retrieved.data = ['1','2'];
+
+      $scope.removeOldData = function(z) {
+        $scope.retrieved.data.splice(z, 1);
+      };
+
+      $scope.PreferredSkillSet = [];
+      $scope.PreferredSkillSet.preferredskills = [];
+      $scope.addNewPreferredSkill = function() {
+        $scope.PreferredSkillSet.preferredskills.push('');
+      };
+      $scope.removePreferredSkill = function(z) {
+        $scope.PreferredSkillSet.preferredskills.splice(z, 1);
+      };
+
+      $scope.submit = function() {
+        // console.log($scope.PreferredSkillSet.preferredskills);
+        // console.log($scope.retrieved.data);
+        var oldValue = $scope.retrieved.data;
+
+        var newValue = $scope.PreferredSkillSet.preferredskills;
+
+        console.log(oldValue.concat(newValue));
+
+     }
+
+   });
+
+  </script>
+</body>
+</html>

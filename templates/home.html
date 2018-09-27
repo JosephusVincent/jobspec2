@@ -1,4 +1,13 @@
 <div id="apply">
+	<md-toolbar layout-align="center center" class="md-toolbar md-raised">
+
+			<h3>
+				<md-button class="md-raised md-default" type="button" href="#!/create">Create</md-button>
+				<!-- <md-button class="md-raised md-" type="button" href="#/!">login</md-button> -->
+				<md-button  class="md-raised md-default" type="button" href="#!/archive">Archive</md-button>
+				<md-button  class="md-raised md-default" type="button" href="#!/view">view</md-button>
+			</h3>
+		</md-toolbar>
 	<md-toolbar layout-align="center center" class="md-primary">
 		<h1>Job List</h1>
 	</md-toolbar>
@@ -11,16 +20,17 @@
 			</md-card-title-text>
 		</md-card-title>	
 
-		<md-card-content ng-controller="myCtrl">
+		<md-card-content ng-controller="DisplayAllDocs">
 			<div ng-repeat="item in details">
 				<md-input-container md-no-float class="md-block">
 					<!-- <p><b>ID : </b>{{ item._id }}</p> -->
 					<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
+					
 					<br>
-					<p><b>Summary : </b> {{ item.job_summary }} </p>
+					<p><b>Summary : </b> {{ item.heading }} </p>
 					<br>
 					<p><b>Status :</b> {{ item.status }}</p>
-					<md-button class="md-raised md-primary" ng-click="showAdvanced($event,item)">Read More</md-button>
+					<md-button class="md-raised md-primary" ng-click="showAdvanced(item._id)">Read More</md-button>
 					<!-- 			<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak> -->
 <!-- 
 						<div class="md-padding" id="popupContainer" ng-cloak> 

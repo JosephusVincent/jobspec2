@@ -10,7 +10,7 @@
 	<!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 	<!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 	<!-- <link rel="stylesheet" href="./assets/css/style_upd_jobspec.css"> -->
-	<link rel="stylesheet" href="./assets/css/old_style.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
 
 	<!-- Angular Material style sheet -->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
@@ -21,43 +21,17 @@
 <body ng-app="newApp">
 
 	<div id="wrapper">
-		<md-toolbar layout-align="center center" class="md-toolbar md-raised">
+		
+	<!-- <form ng-controller="loginCtrl" ng-submit="loginFunction()">
+ To log in, fill in required fields first.
+ <input type="text" ng-model="email" placeholder="Enter your email here" required>
+ <input type="password" ng-model="password" placeholder="Enter your password here" required>
+ <input type="submit" value="submit">
+</form> -->
 
-			<h3>
-				<md-button class="md-raised md-default" type="button" href="#!/create">Create</md-button>
-				<md-button class="md-raised md-" type="button" href="#/!">View</md-button>
-				<md-button  class="md-raised md-default" type="button" href="#!/archive">Archive</md-button>
-			</h3>
-		</md-toolbar>
-
-<!-- 		<div ng-controller="btnLinks">
-	<section layout="row" layout-sm="column" layout-align="center" layout-wrap>
-		<md-button class="md-raised md-primary" type="button" href="./templates/applicant/appl_home.html">Applicant</md-button>
-
-		<md-button class="md-raised md-primary" type="button" href="./templates/recruiter/rec_home.html">Recruiter</md-button>
-		<md-button class="md-raised md-primary" type="button" href=""></md-button>
-		<md-button class="md-raised md-primary" type="button" href="#!/applicant">Applicant</md-button>
-		<md-button class="md-raised md-primary" type="button" href="#!/recruiter">Recruiter</md-button>
-		<md-button class="md-raised md-warn" type="button" href="#!/update">Update</md-button>
-<a href="#/!">view</a>
-	<a href="#!/updateAds">UpdAds</a>
-	</section>
-</div> -->
 
 <div ng-view></div>
 
-<!-- <div ng-controller="SampleCtrl" >
-	<form ng-submit="addReqColumn()">
-		<fieldset  ng-repeat="column in columns">
-			<input type="text" name="columnName" ng-model="column.name" name="" placeholder="Column Name" required>
-
-			<button class="remove"  ng-click="removeReqColumn($index)">x</button> 
-		</fieldset>
-		<button class="addfields" ng-click="addNewReqColumn()">Add Column</button>
-		<button type="submit">Submit</button>
-	</form>    
-
-</div> -->
 </div>
 
 <!-- Angular Material requires Angular.js Libraries -->

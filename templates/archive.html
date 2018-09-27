@@ -6,22 +6,22 @@
 	<md-card id="arc_card">
 		<md-card-title>
 			<md-card-title-text layout-align="center center">
-				<span class="md-headline">Archive List</span>
+				<!-- <span class="md-headline">Archive List</span> -->
 			</md-card-title-text>
 		</md-card-title >
-		<md-card-content ng-controller="arcList" ng-cloak layout="row" layout-align="center center" layout-padding>
+		<md-card-content ng-controller="arcList" ng-cloak layout="row" layout-align="center center">
 				
-		<md-card-content ng-controller="myCtrl">
+		<md-card-content>
 
 			<div ng-repeat="arc in arcList">
 				<md-input-container md-no-float class="md-block">
 					<p><b>Job Title : </b> {{ arc.ad_job_or_title }}</p>
 					<br>
-					<p><b>Summary : </b> {{ arc.job_summary }} </p>
+					<p><b>Summary : </b> {{ arc.heading }} </p>
 					<br>
 					<p><b>Status :</b> {{ arc.status }}</p>
 					<br>
-					<md-button class="md-raised md-primary" ng-click="showAdvanced($event, arc)">Read More</md-button>
+					<md-button class="md-raised md-primary" ng-click="showAdvanced(arc._id)">Read More</md-button>
 				</md-input-container>
 				<md-divider ng-if="!$last"></md-divider>
 			</div>
