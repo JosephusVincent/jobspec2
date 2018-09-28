@@ -879,6 +879,25 @@
   //------------------- Update JobAds ----------------------
   // Populate Fields from Choosen Document
   app.controller('updateDoc', function($scope, $http, $routeParams){
+        window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("myBtn").style.display = "block";
+          } else {
+              document.getElementById("myBtn").style.display = "none";
+          }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+      }
+
+
+
+    
      var currentId = $routeParams.id;
      $scope.passNewID = {}
       $scope.passNewID.key = ""
@@ -889,6 +908,15 @@
         $http.get('/falcon/getSelectedDatas/'+$scope.passNewID).then(function(result){
           $scope.selectedDoc = result.data;
           console.log($scope.selectedDoc);
+
+          // console.log($scope.selectedDoc.history);
+
+          // $scope.history =  $scope.selectedDoc.history;
+
+
+
+
+
            // ------- Toggle Functions ---------
     // Create Jobspec Card
     $scope.toggleJobSpec = function () {
@@ -1624,3 +1652,5 @@
         }
       });
     });
+
+

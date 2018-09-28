@@ -13,60 +13,25 @@
 	<md-toolbar layout-align="center center" class="md-primary">
 		<h1>Job List</h1>
 	</md-toolbar>
+	<center>
+		<md-card id="apply_card" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65" ng-controller="DisplayAllDocs">
+			<md-card-title>
+				<md-card-title-text layout-align="center center">
+					<span class="md-headline">Job Openings</span>
+				</md-card-title-text>
+			</md-card-title>	
 
-
-	<md-card id="apply_card">
-		<md-card-title>
-			<md-card-title-text layout-align="center center">
-				<span class="md-headline">Job Openings</span>
-			</md-card-title-text>
-		</md-card-title>	
-
-		<md-card-content ng-controller="DisplayAllDocs">
-			<div ng-repeat="item in details">
-				<md-input-container md-no-float class="md-block">
-					<!-- <p><b>ID : </b>{{ item._id }}</p> -->
-					<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
-					
-					<br>
-					<p><b>Summary : </b> {{ item.heading }} </p>
-					<br>
-					<p><b>Status :</b> {{ item.status }}</p>
-					<md-button class="md-raised md-primary" ng-click="showAdvanced(item._id)">Read More</md-button>
-					<!-- 			<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak> -->
-<!-- 
-						<div class="md-padding" id="popupContainer" ng-cloak> 
-							<md-button ng-click="getId(item);" type="button" value="item._id" >Read More</md-button>
-
-							Dialog
-							<div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-								<md-button id="clickbtn" class="md-primary md-raised" >
-									Custom Dialog
-								</md-button>
-							</div>
-
-				<div ng-repeat="select in selectedID">
-							<p>{{ select._id }}</p>
-						</div>
-					</div> -->
-				</md-input-container>
-				<md-divider ng-if="!$last"></md-divider>
-			</div>
-		</md-card-content>
-
-	</md-card>
+			<md-card-content>
+				<div ng-repeat="item in details" flex>
+					<md-input-container md-no-float class="md-block">
+						<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
+						<p><b>Summary : </b> {{ item.heading }} </p>
+						<p><b>Status :</b> {{ item.status }}</p>
+						<md-button class="md-raised md-primary" ng-click="showAdvanced(item._id)">Read More</md-button>
+					</md-input-container>
+					<md-divider ng-if="!$last"></md-divider>
+				</div>
+			</md-card-content>
+		</md-card>
+	</center>
 </div>
-
-
-<!-- <div ng-controller="myCtrl">
-  <div ng-repeat="task in details">
-   <button ng-click="getId(task._id);">remove</button>
-  </div>
-  <div> -->
-
-<!-- Dialog
-	<div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-		<md-button id="clickbtn" class="md-primary md-raised" ng-click="showAdvanced($event,item)">
-			Custom Dialog
-		</md-button>
-	</div> -->

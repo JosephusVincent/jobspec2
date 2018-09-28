@@ -151,6 +151,9 @@
 					</md-card>
 				</center>
 
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
 				<!-- Job Order Details Card -->
 			<center>
 			<md-card id="resAd" md-whiteframe="{{jobOrder}}" ng-init="jobOrder = 3" ng-mouseenter="jobOrder = 6" ng-mouseleave="jobOrder = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
@@ -371,7 +374,6 @@
 												</md-button>
 											</md-input-container>
 										</div>          
-
 								</div>
 							</md-card-content>
 						</md-card>
@@ -699,6 +701,50 @@
 					</md-card-content>
 				</md-card>
 				</center>
+
+				<!-- History -->
+				<center>
+					<md-card id="resAd" class="history" flex="70" flex-xs="95" flex-sm="80"  flex-md="65" flex-gt-md="65">
+						<md-card-title layout-align="center center">
+							<md-card-title-text>
+								<span class="md-headline">History</span>
+							</md-card-title-text>
+						</md-card-title>
+						<md-card-content>
+							<div layout="column" layout-padding>
+								<table id="hishead" cellspacing="0" table hoverable bordered >
+									<thead>
+										<tr>
+											<th>User Type </th>
+											<th>Responsibilities</th>
+											<th>Date</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="3">
+												<div id="hisbody">
+													<table>
+														<tbody>
+															<tr ng-repeat="hist in selectedDoc.history">
+																<td>{{hist.admin}}</td>
+																<td>{{hist.note}}</td>
+																<td>{{hist.date}}</td>
+															</tr>
+
+														</tbody>
+													</table>
+															        <md	-divider ng-if="!$last"></md-divider>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</md-card-content>
+					</md-card>
+				</center>
+				    
 
 				<!-- Action Button -->
 				<md-card-content>
