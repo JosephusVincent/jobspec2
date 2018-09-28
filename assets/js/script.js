@@ -82,6 +82,7 @@
       })
       .then(function(data){
         $scope.details = data.data;
+        console.log($scope.details);
       });
 
       // Get Choosen Doc ID
@@ -859,7 +860,7 @@
       $scope.data.manager_info.name = $scope.mngr_fullName;
       $scope.data.manager_info.email = $scope.mngr_email;
       $scope.data.manager_info.contact = $scope.mngr_contact;
-      // console.log($scope.data);
+      console.log($scope.data);
       $http({
               url: "/falcon/createDoc",
               method: "POST",

@@ -1,29 +1,40 @@
 <div id="create">
-	<md-toolbar layout-align="center center" class="md-warn">
-		<h1>Create Jobspec</h1>
+		<center>
+		<md-toolbar layout-align="center center" class="md-toolbar md-raised">
+
+			<h3>
+				<md-button class="md-raised md-default" type="button" href="#!/create">Create</md-button>
+				<!-- <md-button class="md-raised md-" type="button" href="#/!">login</md-button> -->
+				<md-button  class="md-raised md-default" type="button" href="#!/view">view</md-button>
+				<md-button  class="md-raised md-default" type="button" href="#!/archive">Archive</md-button>
+			</h3>
+		</md-toolbar>
+	</center>
+	<md-toolbar layout-align="center center" class="md-primary">
+		<h1>Create</h1>
 	</md-toolbar>
 
 	<!-- Create Advertisement Template -->
-	<div id="create_con">
+	<div id="create_con" layout-align="center">
 
-		<form name="userForm" ng-submit="AddDoc()" ng-controller="createDoc">
-
-			<!-- <form ng-submit="addReqColumn()" ng-controller="createDoc" > -->
-
+		<form name="userForm" ng-submit="AddDoc()" ng-controller="createDoc" >
+		<center>
 			<!-- Job Ad Information Card -->
-			<md-card id="jobAd" md-whiteframe="{{jobAd}}" ng-init="jobAd = 3" ng-mouseenter="jobAd = 6" ng-mouseleave="jobAd = 3">
+			<md-card id="resAd" md-whiteframe="{{jobAd}}" ng-init="jobAd = 3" ng-mouseenter="jobAd = 6" ng-mouseleave="jobAd = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65" >
+
 				<md-card-title>
-					<md-card-title-text ng-click="toggleJobSpec()">
-						<span class="md-headline">Job Ad Information </span>       
+					<md-card-title-text ng-click="toggleJobSpec()" layout-align="center center">
+						<span class="md-headline">Job Spec</span>       
 					</md-card-title-text>
-				</md-card-title>  
+				</md-card-title>
 				<md-card-content ng-show="!jobSpec">
-					<div layout="column">
+
+					<div layout="column" layout-padding>
 
 						<!-- Ad Title -->
-						<md-input-container>
+						<md-input-container >
 							<label>Ad Title </label>
-							<input type="text" name="JobTitle" ng-model="job_title">
+							<input type="text" name="JobTitle" ng-model="job_title" >
 						</md-input-container>
 						<!-- Job Position -->
 						<md-input-container>
@@ -139,17 +150,18 @@
 					</div>
 				</md-card-content>
 			</md-card>
-
-
+		</center>
 			<!-- Job Order Details Card -->
-			<md-card id="reqAd" md-whiteframe="{{jobOrder}}" ng-init="jobOrder = 3" ng-mouseenter="jobOrder = 6" ng-mouseleave="jobOrder = 3">
-							<md-card-title>
-								<md-card-title-text layout-align="center center" ng-click="toggleJobDetails()">
-									<span class="md-headline">Job Order Details</span>
-								</md-card-title-text>
-							</md-card-title>
-							<md-card-content ng-show="!jobDetails">
-					<div layout="column">
+		<center>
+			<md-card id="resAd" md-whiteframe="{{jobOrder}}" ng-init="jobOrder = 3" ng-mouseenter="jobOrder = 6" ng-mouseleave="jobOrder = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65"
+			>
+				<md-card-title >
+					<md-card-title-text ng-click="toggleJobDetails()" layout-align="center center">
+						<span class="md-headline">Job Order Details</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-content ng-show="!jobDetails">
+					<div layout="column" layout-padding>
 
 						<!-- No. of Staff -->
 						<md-input-container>
@@ -194,7 +206,7 @@
  							</md-datepicker>
 						</md-input-container>
 
-						<p>Work Starts at</p>
+						<p id="work_p">Work Starts at</p>
 						<div layout="row">
 							<!-- Working Start Time Hour -->
 						<md-input-container flex>
@@ -212,7 +224,7 @@
 						</md-input-container>
 						</div>
 
-						<p>Work Ends At</p>
+						<p id="work_p">Work Ends At</p>
 						<div layout="row">
 							<!-- Working Start Time Hour -->
 							<md-input-container flex>
@@ -233,18 +245,20 @@
 
 					</div>
 				</md-card>
+				</center>
 
 				<!-- Requirements -->
-				<md-card id="resAd" md-whiteframe="{{requir}}" ng-init="requir = 3" ng-mouseenter="requir = 6" ng-mouseleave="requir = 3">
-		<md-card-title>
-			<md-card-title-text layout-align=" center" ng-click="toggleReq()">
-				<span class="md-headline">Requirements</span>
-				</md-card-title-text>
-			<md-button class="md-raised" ng-click="addNewRequirement()"><i class="far fa-plus-square"></i>Add</md-button>
-		</md-card-title>
-		<md-card-content layout-align="center center" flex ng-show="!Req">
-      <md-card-content layout-align="center center" flex>
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{req}}" ng-init="req = 3" ng-mouseenter="req = 6" ng-mouseleave="req = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65"
+				>
+					<md-card-title>
+						<md-card-title-text ng-click="toggleReq()" layout-align=" center">
+							<span class="md-headline">Requirements</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewRequirement()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!Req">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in requirementSet.requirements track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -261,18 +275,21 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 					
 
 				<!-- Requirements Must Have -->
-				<md-card id="resAd" md-whiteframe="{{reqMHave}}" ng-init="reqMHave = 3" ng-mouseenter="reqMHave = 6" ng-mouseleave="reqMHave = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleReqMH()">
-										<span class="md-headline">Requirements Must Have</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewRequirementMH()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!reqMH">
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{reqMHave}}" ng-init="reqMHave = 3" ng-mouseenter="reqMHave = 6" ng-mouseleave="reqMHave = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65"
+				>
+					<md-card-title>
+						<md-card-title-text ng-click="toggleReqMH()" layout-align=" center">
+							<span class="md-headline">Requirements Must Have</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewRequirementMH()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!reqMH">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in requirementMHSet.requirementsMH track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -289,19 +306,19 @@
 						</div>
 					</md-card-content>
 				</md-card>
-
+				</center>
 
 				<!-- Requirments Good to Have -->
-				<md-card id="resAd" md-whiteframe="{{reqGHave}}" ng-init="reqGHave = 3" ng-mouseenter="reqGHave = 6" ng-mouseleave="reqGHave = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleReqGH()">
-										<span class="md-headline">Requirements Good to Have</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewRequirementGH()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!reqGH">
-      <md-card-content layout-align="center center" flex>
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{reqGHave}}" ng-init="reqGHave = 3" ng-mouseenter="reqGHave = 6" ng-mouseleave="reqGHave = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleReqGH()" layout-align=" center">
+							<span class="md-headline">Requirements Good to Have</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewRequirementGH()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!reqGH" >
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in requirementGHSet.requirementsGH track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -318,22 +335,23 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 				<!-- Requirements Task -->
-				<md-card id="resAd" md-whiteframe="{{reqTasks}}" ng-init="reqTasks = 3" ng-mouseenter="reqTasks = 6" ng-mouseleave="reqTasks = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleReqTask()">
-										<span class="md-headline">Required Task</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewTask()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!reqTask">
-      <md-card-content layout-align="center center" flex>
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{reqTasks}}" ng-init="reqTasks = 3" ng-mouseenter="reqTasks = 6" ng-mouseleave="reqTasks = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleReqTask()" layout-align=" center">
+							<span class="md-headline">Requirement Task</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewTask()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!reqTask">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in TaskSet.tasks track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
-	      							<input type="text" ng-model="TaskSet.tasks[$index]" placeholder="Input Responsibilities" />
+	      							<input type="text" ng-model=" TaskSet.tasks[$index]" placeholder="Input Responsibilities" />
 								</md-input-container>
 
 								<md-input-container flex="4" class="btn-del">
@@ -346,17 +364,19 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 				<!-- Requirement Skills -->
-				<md-card id="resAd" md-whiteframe="{{reqSkills}}" ng-init="reqSkills = 3" ng-mouseenter="reqSkills = 6" ng-mouseleave="reqSkills = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleReqSkill()">
-										<span class="md-headline">Requirement Skills</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewSkill()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!reqSkill">
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn"  md-whiteframe="{{reqSkills}}" ng-init="reqSkills = 3" ng-mouseenter="reqSkills = 6" ng-mouseleave="reqSkills = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleReqSkill()" layout-align=" center">
+							<span class="md-headline">Requirement Skill</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewSkill()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!reqSkill">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in SkillSet.skills track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -373,17 +393,19 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 				<!-- Responsibilities -->
-				<md-card id="reqAd" md-whiteframe="{{res}}" ng-init="res = 3" ng-mouseenter="res = 6" ng-mouseleave="res = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleResp()">
-										<span class="md-headline">Responsibilities</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewResponsibility()"><i class="far fa-plus-square" ></i>Add</md-button>
-								</md-card-title>
-								<md-card-content ng-cloak layout="row" layout-align="center center" layout-padding ng-show="!resp">
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{res}}" ng-init="res = 3" ng-mouseenter="res = 6" ng-mouseleave="res = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleResp()" layout-align=" center">
+							<span class="md-headline">Responsibilities</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewResponsibility()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!resp">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in ResponsibilitySet.responsibilities track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -400,18 +422,20 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 
 				<!-- Duties & Responsibilities -->
-				<md-card id="reqAd" md-whiteframe="{{dutRes}}" ng-init="dutRes = 3" ng-mouseenter="dutRes = 6" ng-mouseleave="dutRes = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleDutResp()">
-										<span class="md-headline">Duties & Responsibilities</span>
-									</md-card-title-text>
-									<md-button class="md-raised" ng-click="addNewDuty()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!dutResp">
-						<div class="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{dutRes}}" ng-init="dutRes = 3" ng-mouseenter="dutRes = 6" ng-mouseleave="dutRes = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleDutResp()" layout-align=" center">
+							<span class="md-headline">Duties & Responsibilities</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewDuty()"><i class="far fa-plus-square"></i>add</md-button>
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!dutResp">
+						<div class="column" layout-padding>
   							<div layout="row" layout-align="center center" data-ng-repeat="field in DutySet.duties track by $index">
 
 								<md-input-container flex="100" md-no-float class="md-block">
@@ -428,17 +452,20 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 				<!-- Other Desired Preferred Skill -->
-				<md-card id="reqAd" md-whiteframe="{{otherPS}}" ng-init="otherPS = 3" ng-mouseenter="otherPS = 6" ng-mouseleave="otherDS = 3">
-								<md-card-title>
-									<md-card-title-text layout-align=" center" ng-click="toggleOtherDPS()">
-										<span class="md-headline">Other Desired or Preferred Skill</span>
-									</md-card-title-text>
-									 <md-button class="md-raised" ng-click="addNewPreferredSkill()"><i class="far fa-plus-square"></i>Add</md-button>
-								</md-card-title>
-								<md-card-content layout-align="center center" flex ng-show="!otherDPS">
-						<div layout="column" flex>
+				<center>
+				<md-card id="resAd" class="dyColumn" md-whiteframe="{{otherDPSkill}}" ng-init="otherDPSkill = 3" ng-mouseenter="otherDPSkill = 6" ng-mouseleave="otherDPSkill = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleOtherDPS()" layout-align=" center">
+							<span class="md-headline">Other Desired or Preferred Skill</span>
+						</md-card-title-text>
+						<md-button class="md-raised" ng-click="addNewPreferredSkill()"><i class="far fa-plus-square"></i>add</md-button>
+
+					</md-card-title>
+					<md-card-content layout-align="center center" flex ng-show="!otherDPS">
+						<div layout="column" layout-padding>
   							<div class="col-sm-4">
     							<div data-ng-repeat="field in PreferredSkillSet.preferredskills track by $index" layout="row" layout-align="center center">
 
@@ -457,15 +484,18 @@
 						</div>
 					</md-card-content>
 				</md-card>
-
-				<md-card id="hisAd" md-whiteframe="{{otherRJI}}" ng-init="otherRJI = 3" ng-mouseenter="otherRJI = 6" ng-mouseleave="otherRJI = 3">
-								<md-card-title>
-									<md-card-title-text layout-align="center center" ng-click="toggleOtherRJInfo()">
-										<span class="md-headline">Other Related Job Information</span>
-									</md-card-title-text>
-								</md-card-title>
-								<md-card-content ng-show="!otherRJInfo">
-						<div layout="column">
+				</center>
+					
+				<!-- Other Related Job Information -->
+				<center>
+				<md-card id="resAd" md-whiteframe="{{otherRJI}}" ng-init="otherRJI = 3" ng-mouseenter="otherRJI = 6" ng-mouseleave="otherRJI = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleOtherRJInfo()" layout-align="center center">
+							<span class="md-headline">Other Related Job Information</span>
+						</md-card-title-text>
+					</md-card-title>
+					<md-card-content ng-show="!otherRJInfo">
+						<div layout="column" layout-padding>
 							<md-input-container>
 								<p>Enter atleast three questions so we can help you find potential staff :</p>
 							</md-input-container>
@@ -500,15 +530,18 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
-				<md-card id="hisAd" md-whiteframe="{{mngInfo}}" ng-init="mngInfo = 3" ng-mouseenter="mngInfo = 6" ng-mouseleave="mngInfo = 3">
-								<md-card-title>
-									<md-card-title-text layout-align="center center" ng-click="toggleManagerInfo()">
-										<span class="md-headline">Manager Information</span>
-									</md-card-title-text>
-								</md-card-title>
-								<md-card-content ng-show="!managerInfo"> 
-						<div layout="column">
+				<!-- Manager Information -->
+				<center>
+				<md-card id="resAd" md-whiteframe="{{mngInfo}}" ng-init="mngInfo = 3" ng-mouseenter="mngInfo = 6" ng-mouseleave="mngInfo = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
+					<md-card-title>
+						<md-card-title-text ng-click="toggleManagerInfo()" layout-align="center center">
+							<span class="md-headline">Manager Information</span>
+						</md-card-title-text>
+					</md-card-title>
+					<md-card-content ng-show="!managerInfo">
+						<div layout="column" layout-padding>
 							<md-input-container>
 								<p>Will you provide training</p>
 									<md-radio-group ng-model="training">
@@ -561,11 +594,12 @@
 						</div>
 					</md-card-content>
 				</md-card>
+				</center>
 
 				<!-- Action Button -->
 				<md-card-content>
 					<md-card-actions layout="row" layout-align=" center">
-						<md-button type="submit" class="md-raised md-default">Create Job Ads</md-button>
+						<md-button type="submit" class="md-raised md-primary">Create</md-button>
 					</md-card-actions>
 				</md-card-content>
 

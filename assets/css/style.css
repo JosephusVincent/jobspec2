@@ -1,24 +1,28 @@
-* {
+ * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-#wrapper {	 
+
+
+
+
+
+/*#wrapper {	 
 	height: auto;
 	min-height: 100%;
 	width: 100%;
-}
+}*/
 
 #wrapper #jobAd md-card-content md-input-container {
-    margin: 12px 0;
+    /*margin: 12px 0;*/
 }
 
-/* 
-	-----------Display Jobspecs ------------
-*/
+/*-----------Display Jobspecs ------------*/
 #wrapper #apply #apply_card {
-	margin: 2rem 9rem!important;
+	width: 55rem;
+    margin: 2rem auto;
 }
 
 #wrapper #apply #apply_card md-card-title {
@@ -35,27 +39,19 @@
 	color: white;
 }
 
-/* 
-	---------- Create JobAd -------------
- */
+/*---------- Create JobAd -------------*/
 #wrapper #create #create_con #jobAd,
 #wrapper #create #create_con #reqAd,
 #wrapper #create #create_con #resAd,
 #wrapper #create #create_con #hisAd
 {
-    margin: 2rem 9rem!important;
+    /*margin: 2rem 9rem!important;*/
 }
-/*.flex-title {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  > span {
-    white-space: nowrap;
-  }*/
 
-/* All Title Text */
+
+/*All Title Text*/
 #wrapper #create #create_con md-card-title md-card-title-text span{
-	font-size: 1.6rem;
+	font-size: 1.3rem;
 }
 
 #wrapper #create #create_con md-card-title md-card-title-text:hover{
@@ -68,9 +64,13 @@
 	outline: none;
 }
 
+#wrapper #create #create_con  md-card md-card-title+md-card-content {
+    /*padding: 2rem 5rem!important;*/
+}
 
-#wrapper #create #create_con  md-card md-card-title-md-card-content {
-    padding: 2rem 5rem!important;
+/* Set All Input Container to left */
+#wrapper #create #create_con md-input-container {
+	text-align: left;
 }
 
 #wrapper #create #create_con #jobAd md-card-title {
@@ -79,11 +79,20 @@
 	text-align: center;
 }
 
+#wrapper #create #create_con #work_p {
+	text-align: left;
+}
+
+/* all new Columns */
+#wrapper #create #create_con .dyColumn md-card-title {
+	text-align: left!important;
+}
+
 #wrapper #create #create_con #jobAd #textHeading {
 	height: 155px!important;
 }
 
-/* Requirements Ad Information Card */
+/*Requirements Ad Information Card*/
 #wrapper #create #create_con #reqAd md-card-title {
 	background-color: lightseagreen;
 	color: white;
@@ -119,9 +128,13 @@
 	margin: 0;
 }
 
-/* Responsibilities Ad Information Card */
+/*Responsibilities Ad Information Card*/
+#wrapper #create #create_con #resAd {
+	margin: 1rem 0rem;
+}
+
 #wrapper #create #create_con #resAd md-card-title {
-	background-color: blueviolet;
+	background-color: lightslategrey;
 	color: white;
 }
 
@@ -154,27 +167,29 @@
 	margin: 0;
 }
 
-/* HisAd Information Card */
+/*HisAd Information Card*/
 #wrapper #create #create_con #hisAd md-card-title {
 	background-color: lightslategrey;
 	color: white;
 }
 
-/* 
-	--------- UpdateAds JobAd ----------
-*/
+/*--------- UpdateAds JobAd ----------*/
 #wrapper #update #update_con #jobAd,
 #wrapper #update #update_con #reqAd,
 #wrapper #update #update_con #resAd,
 #wrapper #update #update_con #hisAd
 {
-    margin: 2rem 9rem!important;
+    /*margin: 2rem 9rem!important;*/
 }
 
+/* all new Columns */
+#wrapper #update #update_con .dyColumn md-card-title {
+	text-align: left!important;
+}
 
-/* All Title Text */
+/*All Title Text*/
 #wrapper #update #update_con md-card-title md-card-title-text span{
-	font-size: 1.6rem;
+	font-size: 1.3rem;
 }
 
 #wrapper #update #update_con md-card-title md-card-title-text:hover{
@@ -183,16 +198,21 @@
 	cursor: pointer;
 }
 
+#wrapper #update #update_con #work_p {
+	text-align: left;
+}
+
 #wrapper #update #update_con md-card-title md-card-title-text:focus {
 	outline: none;
 }
 
+#wrapper #update #update_con md-card md-card-title+md-card-content {
+    /*padding: 2rem 5rem!important;*/
+}
 
-
-
-
-#wrapper #update #update_con md-card md-card-titlemd-card-content {
-    padding: 2rem 5rem!important;
+/* Set All Input Container to left */
+#wrapper #update #update_con md-input-container {
+	text-align: left;
 }
 
 #wrapper #update #update_con #jobAd md-card-title {
@@ -205,7 +225,7 @@
 	height: 155px!important;
 }
 
-/* Requirements Ad Information Card */
+/*Requirements Ad Information Card*/
 #wrapper #update #update_con #reqAd md-card-title {
 	background-color: lightseagreen;
 	color: white;
@@ -240,9 +260,9 @@
 	margin: 0;
 }
 
-/* Responsibilities Ad Information Card */
+/*Responsibilities Ad Information Card*/
 #wrapper #update #update_con #resAd md-card-title {
-	background-color: blueviolet;
+	background-color: lightslategrey;
 	color: white;
 }
 
@@ -252,7 +272,6 @@
 	margin: 0.5rem 0rem;
 	border-radius: .5rem;
 	background-color: #8a2be236!important;
-
 }
 
 #wrapper #update #update_con #resAd md-card-content .AddNewRes{
@@ -276,13 +295,13 @@
 	margin: 0;
 }
 
-/* HisAd Information Card */
+/*HisAd Information Card*/
 #wrapper #update #update_con #hisAd md-card-title {
 	background-color: lightslategrey;
 	color: white;
 }
 
-/* FontAwesome Plus Icon */
+/*FontAwesome Plus Icon*/
 #wrapper #resAd md-card-title .fa-plus-square:before,
 #wrapper #reqAd md-card-title .fa-plus-square:before
  {
@@ -291,17 +310,15 @@
     font-weight: bold;
 }
 
-/* Dialog Display Design */
+/*Dialog Display Design*/
  #cusDivider.ng-scope {
 	width: 95%;
 	margin: auto;
 }
 
-/* 
-	------------ Archive ------------
-*/
+/*------------ Archive ------------*/
  #wrapper #archive #arc_card {
-	width: 30rem;
+	width: 55rem;
     margin: 2rem auto;
  }
 
@@ -310,8 +327,195 @@
 	color: white;
 }
 
-/*
-#wrapper #archive #arc_card #clickbtn {
-	display: none;
+
+/*----------- Media Query --------------*/
+/* 
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+	-------- Create -----
+	#wrapper #create md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #create #create_con #jobAd,
+	#wrapper #create #create_con #reqAd,
+	#wrapper #create #create_con #resAd,
+	#wrapper #create #create_con #hisAd
+	{
+	    margin: 2rem 5rem!important;
+	}
+
+	#wrapper #create #create_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 4rem!important;
+	}
+
+	#wrapper #create #create_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	#wrapper #create #create_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+
+	-------- Update -----
+	#wrapper #update md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #update #update_con #jobAd,
+	#wrapper #update #update_con #reqAd,
+	#wrapper #update #update_con #resAd,
+	#wrapper #update #update_con #hisAd
+	{
+	    margin: 2rem 5rem!important;
+	}
+
+	#wrapper #update #update_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 4rem!important;
+	}
+
+	#wrapper #update #update_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	All Title Text
+	#wrapper #update #update_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+
 }
-*/
+
+@media only screen and (min-width: 401px) and (max-width: 500px) {
+
+-------- Create -----
+	#wrapper #create md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #create #create_con #jobAd,
+	#wrapper #create #create_con #reqAd,
+	#wrapper #create #create_con #resAd,
+	#wrapper #create #create_con #hisAd
+	{
+	    margin: 1rem 1rem!important;
+	}
+
+	#wrapper #create #create_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 1rem!important;
+	}
+
+	#wrapper #create #create_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	All Title Text
+	#wrapper #create #create_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+
+	-------- Update -----
+	#wrapper #update md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #update #update_con #jobAd,
+	#wrapper #update #update_con #reqAd,
+	#wrapper #update #update_con #resAd,
+	#wrapper #update #update_con #hisAd
+	{
+	    margin: 1rem 1.2rem!important;
+	}
+
+	#wrapper #update #update_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 1rem!important;
+	}
+
+	#wrapper #update #update_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	All Title Text
+	#wrapper #update #update_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+
+}
+
+@media only screen and (max-width: 400px) {
+
+	-------- Create -----
+	#wrapper #create md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #create #create_con #jobAd,
+	#wrapper #create #create_con #reqAd,
+	#wrapper #create #create_con #resAd,
+	#wrapper #create #create_con #hisAd
+	{
+	    margin: 1rem 1rem!important;
+	}
+
+	#wrapper #create #create_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 1rem!important;
+	}
+
+	#wrapper #create #create_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	All Title Text
+	#wrapper #create #create_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+
+	-------- Update -----
+	#wrapper #update md-toolbar h1 {
+		font-size: 1.5rem;
+	}
+
+	#wrapper #navbtn h3 {
+		text-align: center;
+	}
+
+	#wrapper #update #update_con #jobAd,
+	#wrapper #update #update_con #reqAd,
+	#wrapper #update #update_con #resAd,
+	#wrapper #update #update_con #hisAd
+	{
+	    margin: 1rem 1.2rem!important;
+	}
+
+	#wrapper #update #update_con  md-card md-card-title+md-card-content {
+    	padding: 1rem 1rem!important;
+	}
+
+	#wrapper #update #update_con #jobAd md-card-title {
+		padding: 1rem 1rem;
+	}
+
+	All Title Text
+	#wrapper #update #update_con md-card-title md-card-title-text span{
+		font-size: 1.3rem;
+	}
+} 
