@@ -151,9 +151,6 @@
 					</md-card>
 				</center>
 
-			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-
 				<!-- Job Order Details Card -->
 			<center>
 			<md-card id="resAd" md-whiteframe="{{jobOrder}}" ng-init="jobOrder = 3" ng-mouseenter="jobOrder = 6" ng-mouseleave="jobOrder = 3" flex="70" flex-xs="95" flex-sm="80" flex-md="65" flex-gt-md="65">
@@ -727,8 +724,8 @@
 													<table>
 														<tbody>
 															<tr ng-repeat="hist in selectedDoc.history">
-																<td>{{hist.admin}}</td>
-																<td>{{hist.note}}</td>
+																<td>{{hist.changed_by}}</td>
+																<td>{{hist.changed}}</td>
 																<td>{{hist.date}}</td>
 															</tr>
 

@@ -22,16 +22,54 @@
 			</md-card-title>	
 
 			<md-card-content>
-				<div ng-repeat="item in details" flex>
+
+				<md-input-container md-no-float class="md-block">
+					<div ng-cloak="" class="virtualRepeatdemoHorizontalUsage">
+						<md-content layout="row">
+							<md-virtual-repeat-container id="horizontal-container" md-orient-horizontal="">
+								<div md-virtual-repeat="item in details" class="repeated-item" flex layout-align="center center">
+
+									<table cellpadding="0" cellspacing="0" style="text-align: center; margin: auto;">
+										<tbody>
+											<tr>
+												<td><b>Item Job title:</b></td>
+												<td class="td_data">{{ item.ad_job_or_title }}</td>
+											</tr>
+											<tr>
+												<td> <b>Heading:</b></td>
+												<td class="td_data">{{ item.heading }}</td>
+											</tr>
+											<tr>
+												<td> <b>Status:</b></td>
+												<td class="td_data"> {{ item.status }}</td>
+											</tr>
+										</tbody>
+									</table>
+
+							<md-card-actions layout="row" layout-align=" center">
+									<md-button class="md-raised md-primary" ng-click="showAdvanced(item._id)">Read More</md-button>
+							</md-card-actions>
+					
+<!-- 									<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
+									<p><b>Summary : </b> {{ item.heading }} </p>
+									<p><b>Status :</b> {{ item.status }}</p> -->
+								</div>
+							</md-virtual-repeat-container>
+						</md-content>
+					</div>
+				</md-input-container>
+
+<!-- 				<div ng-repeat="item in details" flex>
 					<md-input-container md-no-float class="md-block">
 						<p><b>Job Title : </b> {{ item.ad_job_or_title }}</p>
 						<p><b>Summary : </b> {{ item.heading }} </p>
 						<p><b>Status :</b> {{ item.status }}</p>
 						<md-button class="md-raised md-primary" ng-click="showAdvanced(item._id)">Read More</md-button>
 					</md-input-container>
-					<md-divider ng-if="!$last"></md-divider>
+					<md-divider ng-if="!$last"></md-divider> -->
 				</div>
 			</md-card-content>
 		</md-card>
 	</center>
+
 </div>

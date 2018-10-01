@@ -879,93 +879,68 @@
   //------------------- Update JobAds ----------------------
   // Populate Fields from Choosen Document
   app.controller('updateDoc', function($scope, $http, $routeParams){
-        window.onscroll = function() {scrollFunction()};
 
-      function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-              document.getElementById("myBtn").style.display = "block";
-          } else {
-              document.getElementById("myBtn").style.display = "none";
-          }
-      }
+  var currentId = $routeParams.id;
+   $scope.passNewID = {}
+    $scope.passNewID.key = ""
+    $scope.passNewID = currentId;
+    // console.log($scope.passNewID);
 
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-      }
+      $http.get('/falcon/getSelectedDatas/'+$scope.passNewID, JSON.stringify($scope.passNewID));
+      $http.get('/falcon/getSelectedDatas/'+$scope.passNewID).then(function(result){
+        $scope.selectedDoc = result.data;
+        console.log($scope.selectedDoc);
+        console.log($scope.selectedDoc.history);
 
-
-
-    
-     var currentId = $routeParams.id;
-     $scope.passNewID = {}
-      $scope.passNewID.key = ""
-      $scope.passNewID = currentId;
-      // console.log($scope.passNewID);
-
-        $http.get('/falcon/getSelectedDatas/'+$scope.passNewID, JSON.stringify($scope.passNewID));
-        $http.get('/falcon/getSelectedDatas/'+$scope.passNewID).then(function(result){
-          $scope.selectedDoc = result.data;
-          console.log($scope.selectedDoc);
-
-          // console.log($scope.selectedDoc.history);
-
-          // $scope.history =  $scope.selectedDoc.history;
-
-
-
-
-
-           // ------- Toggle Functions ---------
-    // Create Jobspec Card
-    $scope.toggleJobSpec = function () {
-      $scope.jobSpec = !$scope.jobSpec;         
-    };
-    // Job Details Card
-    $scope.toggleJobDetails = function () {
-      $scope.jobDetails = !$scope.jobDetails;         
-    };
-    // Requirements Card
-    $scope.toggleReq = function () {
-      $scope.Req = !$scope.Req;         
-    };
-    // Requirements Must Have
-    $scope.toggleReqMH = function () {
-      $scope.reqMH = !$scope.reqMH;         
-    };
-    // Requirements Task
-    $scope.toggleReqGH = function () {
-      $scope.reqGH = !$scope.reqGH;         
-    }; 
-    // Requirements Task
-    $scope.toggleReqTask = function () {
-      $scope.reqTask = !$scope.reqTask;         
-    };
-    // Requirement Skill
-    $scope.toggleReqSkill = function () {
-      $scope.reqSkill = !$scope.reqSkill;         
-    };
-    // Responsibilities
-    $scope.toggleResp = function () {
-      $scope.resp = !$scope.resp;         
-    };
-    // Duties and Responsibilities
-    $scope.toggleDutResp = function () {
-      $scope.dutResp = !$scope.dutResp;         
-    };
-    // Other Desired Preferred Skill
-    $scope.toggleOtherDPS = function () {
-      $scope.otherDPS = !$scope.otherDPS;         
-    };
-    // Other Desired Preferred Skill
-    $scope.toggleOtherRJInfo= function () {
-      $scope.otherRJInfo = !$scope.otherRJInfo;         
-    };
-    // Manager Info
-    $scope.toggleManagerInfo= function () {
-      $scope.managerInfo = !$scope.managerInfo;         
-    };
+      // ------- Toggle Functions ---------
+      // Create Jobspec Card
+      $scope.toggleJobSpec = function () {
+        $scope.jobSpec = !$scope.jobSpec;         
+      };
+      // Job Details Card
+      $scope.toggleJobDetails = function () {
+        $scope.jobDetails = !$scope.jobDetails;         
+      };
+      // Requirements Card
+      $scope.toggleReq = function () {
+        $scope.Req = !$scope.Req;         
+      };
+      // Requirements Must Have
+      $scope.toggleReqMH = function () {
+        $scope.reqMH = !$scope.reqMH;         
+      };
+      // Requirements Task
+      $scope.toggleReqGH = function () {
+        $scope.reqGH = !$scope.reqGH;         
+      }; 
+      // Requirements Task
+      $scope.toggleReqTask = function () {
+        $scope.reqTask = !$scope.reqTask;         
+      };
+      // Requirement Skill
+      $scope.toggleReqSkill = function () {
+        $scope.reqSkill = !$scope.reqSkill;         
+      };
+      // Responsibilities
+      $scope.toggleResp = function () {
+        $scope.resp = !$scope.resp;         
+      };
+      // Duties and Responsibilities
+      $scope.toggleDutResp = function () {
+        $scope.dutResp = !$scope.dutResp;         
+      };
+      // Other Desired Preferred Skill
+      $scope.toggleOtherDPS = function () {
+        $scope.otherDPS = !$scope.otherDPS;         
+      };
+      // Other Desired Preferred Skill
+      $scope.toggleOtherRJInfo= function () {
+        $scope.otherRJInfo = !$scope.otherRJInfo;         
+      };
+      // Manager Info
+      $scope.toggleManagerInfo= function () {
+        $scope.managerInfo = !$scope.managerInfo;         
+      };
 
       // $scope.displayDoc = SelectedData;
       // console.log(SelectedData);
@@ -1104,16 +1079,16 @@
 
 
      $scope.reqType = [
-      {name:'Beginner'},
-      {name:'Intermediate'},
-      {name:'Advanced'}
-      ];
+        {name:'Beginner'},
+        {name:'Intermediate'},
+        {name:'Advanced'}
+        ];
 
       $scope.resType = [
-      {name:'Beginner'},
-      {name:'Intermediate'},
-      {name:'Advanced'}
-      ];
+        {name:'Beginner'},
+        {name:'Intermediate'},
+        {name:'Advanced'}
+        ];
 
       // Job Order Select Tags
       $scope.job_order_level = [
@@ -1127,298 +1102,298 @@
         {name:'Expert (More than 5 years)'}
       ];
 
-        // Working Status Values 227 Lines
-        $scope.working_time_zone = [
-          {name: 'Africa/Johannesburg'},
-          {name: 'America/Adak'},
-          {name: 'America/Anchorage'},
-          {name: 'America/Anguilla'},
-          {name: 'America/Antigua'},
-          {name: 'America/Araguaina'},
-          {name: 'America/Argentina/Buenos_Aires'},
-          {name: 'America/Argentina/Catamarca'},
-          {name: 'America/Argentina/Cordoba'},
-          {name: 'America/Argentina/Jujuy'},
-          {name: 'America/Argentina/La_Rioja'},
-          {name: 'America/Argentina/Mendoza'},
-          {name: 'America/Argentina/Rio_Gallegos'},
-          {name: 'America/Argentina/Salta'},
-          {name: 'America/Argentina/San_Juan'},
-          {name: 'America/Argentina/San_Luis'},
-          {name: 'America/Argentina/Tucuman'},
-          {name: 'America/Argentina/Ushuaia'},
-          {name: 'America/Aruba'},
-          {name: 'America/Asuncion'},
-          {name: 'America/Atikokan'},
-          {name: 'America/Bahia'},
-          {name: 'America/Bahia_Banderas'},
-          {name: 'America/Barbados'},
-          {name: 'America/Belem'},
-          {name: 'America/Belize'},
-          {name: 'America/Blanc-Sablon'},
-          {name: 'America/Boa_Vista'},
-          {name: 'America/Bogota'},
-          {name: 'America/Boise'},
-          {name: 'America/Cambridge_Bay'},
-          {name: 'America/Campo_Grande'},
-          {name: 'America/Cancun'},
-          {name: 'America/Caracas'},
-          {name: 'America/Cayenne'},
-          {name: 'America/Cayman'},
-          {name: 'America/Chicago'},
-          {name: 'America/Chihuahua'},
-          {name: 'America/Costa_Rica'},
-          {name: 'America/Creston'},
-          {name: 'America/Cuiaba'},
-          {name: 'America/Curacao'},
-          {name: 'America/Danmarkshavn'},
-          {name: 'America/Dawson'},
-          {name: 'America/Dawson_Creek'},
-          {name: 'America/Denver'},
-          {name: 'America/Detroit'},
-          {name: 'America/Dominica'},
-          {name: 'America/Edmonton'},
-          {name: 'America/Eirunepe'},
-          {name: 'America/El_Salvador'},
-          {name: 'America/Fortaleza'},
-          {name: 'America/Glace_Bay'},
-          {name: 'America/Godthab'},
-          {name: 'America/Goose_Bay'},
-          {name: 'America/Grand_Turk'},
-          {name: 'America/Grenada'},
-          {name: 'America/Guadeloupe'},
-          {name: 'America/Guatemala'},
-          {name: 'America/Guayaquil'},
-          {name: 'America/Guyana'},
-          {name: 'America/Halifax'},
-          {name: 'America/Havana'},
-          {name: 'America/Hermosillo'},
-          {name: 'America/Indiana/Indianapolis'},
-          {name: 'America/Indiana/Knox'},
-          {name: 'America/Indiana/Marengo'},
-          {name: 'America/Indiana/Petersburg'},
-          {name: 'America/Indiana/Tell_City'},
-          {name: 'America/Indiana/Vevay'},
-          {name: 'America/Indiana/Vincennes'},
-          {name: 'America/Indiana/Winamac'},
-          {name: 'America/Inuvik'},
-          {name: 'America/Iqaluit'},
-          {name: 'America/Jamaica'},
-          {name: 'America/Juneau'},
-          {name: 'America/Kentucky/Louisville'},
-          {name: 'America/Kentucky/Monticello'},
-          {name: 'America/Kralendijk'},
-          {name: 'America/La_Paz'},
-          {name: 'America/Lima'},
-          {name: 'America/Los_Angeles'},
-          {name: 'America/Louisville'},
-          {name: 'America/Lower_Princes'},
-          {name: 'America/Maceio'},
-          {name: 'America/Managua'},
-          {name: 'America/Manaus'},
-          {name: 'America/Marigot'},
-          {name: 'America/Martinique'},
-          {name: 'America/Matamoros'},
-          {name: 'America/Mazatlan'},
-          {name: 'America/Menominee'},
-          {name: 'America/Merida'},
-          {name: 'America/Metlakatla'},
-          {name: 'America/Mexico_City'},
-          {name: 'America/Miquelon'},
-          {name: 'America/Moncton'},
-          {name: 'America/Monterrey'},
-          {name: 'America/Montevideo'},
-          {name: 'America/Montreal'},
-          {name: 'America/Montserrat'},
-          {name: 'America/Nassau'},
-          {name: 'America/New_York'},
-          {name: 'America/Nipigon'},
-          {name: 'America/Nome'},
-          {name: 'America/Noronha'},
-          {name: 'America/North_Dakota/Beulah'},
-          {name: 'America/North_Dakota/Center'},
-          {name: 'America/North_Dakota/New_Salem'},
-          {name: 'America/Ojinaga'},
-          {name: 'America/Panama'},
-          {name: 'America/Pangnirtung'},
-          {name: 'America/Paramaribo'},
-          {name: 'America/Phoenix'},
-          {name: 'America/Port_of_Spain'},
-          {name: 'America/Port-au-Prince'},
-          {name: 'America/Porto_Velho'},
-          {name: 'America/Puerto_Rico'},
-          {name: 'America/Rainy_River'},
-          {name: 'America/Rankin_Inlet'},
-          {name: 'America/Recife'},
-          {name: 'America/Regina'},
-          {name: 'America/Resolute'},
-          {name: 'America/Rio_Branco'},
-          {name: 'America/Santa_Isabel'},
-          {name: 'America/Santarem'},
-          {name: 'America/Santiago'},
-          {name: 'America/Santo_Domingo'},
-          {name: 'America/Sao_Paulo'},
-          {name: 'America/Scoresbysund'},
-          {name: 'America/Shiprock'},
-          {name: 'America/Sitka'},
-          {name: 'America/St_Barthelemy'},
-          {name: 'America/St_Johns'},
-          {name: 'America/St_Kitts'},
-          {name: 'America/St_Lucia'},
-          {name: 'America/St_Thomas'},
-          {name: 'America/St_Vincent'},
-          {name: 'America/Swift_Current'},
-          {name: 'America/Tegucigalpa'},
-          {name: 'America/Thule'},
-          {name: 'America/Thunder_Bay'},
-          {name: 'America/Tijuana'},
-          {name: 'America/Toronto'},
-          {name: 'America/Tortola'},
-          {name: 'America/Vancouver'},
-          {name: 'America/Whitehorse'},
-          {name: 'America/Winnipeg'},
-          {name: 'America/Yakutat'},
-          {name: 'America/Yellowknife'},
-          {name: 'Asia/Bangkok'},
-          {name: 'Asia/Kolkata'},
-          {name: 'Asia/Manila'},
-          {name: 'Asia/Singapore'},
-          {name: 'Australia/Adelaide'},
-          {name: 'Australia/Brisbane'},
-          {name: 'Australia/Broken_Hill'},
-          {name: 'Australia/Currie'},
-          {name: 'Australia/Darwin'},
-          {name: 'Australia/Eucla'},
-          {name: 'Australia/Hobart'},
-          {name: 'Australia/Lindeman'},
-          {name: 'Australia/Lord_Howe'},
-          {name: 'Australia/Melbourne'},
-          {name: 'Australia/Perth'},
-          {name: 'Australia/Queensland'},
-          {name: 'Australia/Sydney'},
-          {name: 'Europe/Amsterdam'},
-          {name: 'Europe/Andorra'},
-          {name: 'Europe/Athens'},
-          {name: 'Europe/Belgrade'},
-          {name: 'Europe/Berlin'},
-          {name: 'Europe/Bratislava'},
-          {name: 'Europe/Brussels'},
-          {name: 'Europe/Bucharest'},
-          {name: 'Europe/Budapest'},
-          {name: 'Europe/Busingen'},
-          {name: 'Europe/Chisinau'},
-          {name: 'Europe/Copenhagen'},
-          {name: 'Europe/Dublin'},
-          {name: 'Europe/Gibraltar'},
-          {name: 'Europe/Guernsey'},
-          {name: 'Europe/Helsinki'},
-          {name: 'Europe/Isle_of_Man'},
-          {name: 'Europe/Istanbul'},
-          {name: 'Europe/Jersey'},
-          {name: 'Europe/Kaliningrad'},
-          {name: 'Europe/Kiev'},
-          {name: 'Europe/Lisbon'},
-          {name: 'Europe/Ljubljana'},
-          {name: 'Europe/London'},
-          {name: 'Europe/Luxembourg'},
-          {name: 'Europe/Madrid'},
-          {name: 'Europe/Malta'},
-          {name: 'Europe/Mariehamn'},
-          {name: 'Europe/Minsk'},
-          {name: 'Europe/Monaco'},
-          {name: 'Europe/Moscow'},
-          {name: 'Europe/Nicosia'},
-          {name: 'Europe/Oslo'},
-          {name: 'Europe/Paris'},
-          {name: 'Europe/Podgorica'},
-          {name: 'Europe/Prague'},
-          {name: 'Europe/Riga'},
-          {name: 'Europe/Rome'},
-          {name: 'Europe/Samara'},
-          {name: 'Europe/San_Marino'},
-          {name: 'Europe/Sarajevo'},
-          {name: 'Europe/Simferopol'},
-          {name: 'Europe/Skopje'},
-          {name: 'Europe/Sofia'},
-          {name: 'Europe/Stockholm'},
-          {name: 'Europe/Tallinn'},
-          {name: 'Europe/Tirane'},
-          {name: 'Europe/Uzhgorod'},
-          {name: 'Europe/Vaduz'},
-          {name: 'Europe/Vatican'},
-          {name: 'Europe/Vienna'},
-          {name: 'Europe/Vilnius'},
-          {name: 'Europe/Volgograd'},
-          {name: 'Europe/Warsaw'},
-          {name: 'Europe/Zagreb'},
-          {name: 'Europe/Zaporozhye'},
-          {name: 'Europe/Zurich'},
-          {name: 'Pacific/Auckland'},
-          {name: 'Pacific/Chatham'},
-          {name: 'Pacific/Honolulu'}
-        ];
-
-        // Start Working Time Values 48 lines
-        $scope.working_start_timeH = [
-          {value:1, label:"1"},
-          {value:2, label:"2"},
-          {value:3, label:"3"},
-          {value:4, label:"4"},
-          {value:5, label:"5"},
-          {value:6, label:"6"},
-          {value:7, label:"7"},
-          {value:8, label:"8"},
-          {value:9, label:"9"},
-          {value:10, label:"10"},
-          {value:11, label:"11"},
-          {value:12, label:"12"},
-          {value:13, label: "1"},
-          {value:14, label:"2"},
-          {value:15, label:"3"},
-          {value:16, label:"4"},
-          {value:17, label:"5"},
-          {value:18, label:"6"},
-          {value:19, label:"7"},
-          {value:20, label:"8"},
-          {value:21, label:"9"},
-          {value:22, label:"10"},
-          {value:23, label:"11"},
-          {value:24, label:"12"}
-        ];
-        $scope.working_start_timeM = [
-      {value: "00 AM", label:":00AM"},
-      {value: "30 AM", label:":30AM"},
-      {value: "00 PM", label:":00PM"},
-      {value: "30 PM", label:":30PM"}
+      // Working Status Values 227 Lines
+      $scope.working_time_zone = [
+        {name: 'Africa/Johannesburg'},
+        {name: 'America/Adak'},
+        {name: 'America/Anchorage'},
+        {name: 'America/Anguilla'},
+        {name: 'America/Antigua'},
+        {name: 'America/Araguaina'},
+        {name: 'America/Argentina/Buenos_Aires'},
+        {name: 'America/Argentina/Catamarca'},
+        {name: 'America/Argentina/Cordoba'},
+        {name: 'America/Argentina/Jujuy'},
+        {name: 'America/Argentina/La_Rioja'},
+        {name: 'America/Argentina/Mendoza'},
+        {name: 'America/Argentina/Rio_Gallegos'},
+        {name: 'America/Argentina/Salta'},
+        {name: 'America/Argentina/San_Juan'},
+        {name: 'America/Argentina/San_Luis'},
+        {name: 'America/Argentina/Tucuman'},
+        {name: 'America/Argentina/Ushuaia'},
+        {name: 'America/Aruba'},
+        {name: 'America/Asuncion'},
+        {name: 'America/Atikokan'},
+        {name: 'America/Bahia'},
+        {name: 'America/Bahia_Banderas'},
+        {name: 'America/Barbados'},
+        {name: 'America/Belem'},
+        {name: 'America/Belize'},
+        {name: 'America/Blanc-Sablon'},
+        {name: 'America/Boa_Vista'},
+        {name: 'America/Bogota'},
+        {name: 'America/Boise'},
+        {name: 'America/Cambridge_Bay'},
+        {name: 'America/Campo_Grande'},
+        {name: 'America/Cancun'},
+        {name: 'America/Caracas'},
+        {name: 'America/Cayenne'},
+        {name: 'America/Cayman'},
+        {name: 'America/Chicago'},
+        {name: 'America/Chihuahua'},
+        {name: 'America/Costa_Rica'},
+        {name: 'America/Creston'},
+        {name: 'America/Cuiaba'},
+        {name: 'America/Curacao'},
+        {name: 'America/Danmarkshavn'},
+        {name: 'America/Dawson'},
+        {name: 'America/Dawson_Creek'},
+        {name: 'America/Denver'},
+        {name: 'America/Detroit'},
+        {name: 'America/Dominica'},
+        {name: 'America/Edmonton'},
+        {name: 'America/Eirunepe'},
+        {name: 'America/El_Salvador'},
+        {name: 'America/Fortaleza'},
+        {name: 'America/Glace_Bay'},
+        {name: 'America/Godthab'},
+        {name: 'America/Goose_Bay'},
+        {name: 'America/Grand_Turk'},
+        {name: 'America/Grenada'},
+        {name: 'America/Guadeloupe'},
+        {name: 'America/Guatemala'},
+        {name: 'America/Guayaquil'},
+        {name: 'America/Guyana'},
+        {name: 'America/Halifax'},
+        {name: 'America/Havana'},
+        {name: 'America/Hermosillo'},
+        {name: 'America/Indiana/Indianapolis'},
+        {name: 'America/Indiana/Knox'},
+        {name: 'America/Indiana/Marengo'},
+        {name: 'America/Indiana/Petersburg'},
+        {name: 'America/Indiana/Tell_City'},
+        {name: 'America/Indiana/Vevay'},
+        {name: 'America/Indiana/Vincennes'},
+        {name: 'America/Indiana/Winamac'},
+        {name: 'America/Inuvik'},
+        {name: 'America/Iqaluit'},
+        {name: 'America/Jamaica'},
+        {name: 'America/Juneau'},
+        {name: 'America/Kentucky/Louisville'},
+        {name: 'America/Kentucky/Monticello'},
+        {name: 'America/Kralendijk'},
+        {name: 'America/La_Paz'},
+        {name: 'America/Lima'},
+        {name: 'America/Los_Angeles'},
+        {name: 'America/Louisville'},
+        {name: 'America/Lower_Princes'},
+        {name: 'America/Maceio'},
+        {name: 'America/Managua'},
+        {name: 'America/Manaus'},
+        {name: 'America/Marigot'},
+        {name: 'America/Martinique'},
+        {name: 'America/Matamoros'},
+        {name: 'America/Mazatlan'},
+        {name: 'America/Menominee'},
+        {name: 'America/Merida'},
+        {name: 'America/Metlakatla'},
+        {name: 'America/Mexico_City'},
+        {name: 'America/Miquelon'},
+        {name: 'America/Moncton'},
+        {name: 'America/Monterrey'},
+        {name: 'America/Montevideo'},
+        {name: 'America/Montreal'},
+        {name: 'America/Montserrat'},
+        {name: 'America/Nassau'},
+        {name: 'America/New_York'},
+        {name: 'America/Nipigon'},
+        {name: 'America/Nome'},
+        {name: 'America/Noronha'},
+        {name: 'America/North_Dakota/Beulah'},
+        {name: 'America/North_Dakota/Center'},
+        {name: 'America/North_Dakota/New_Salem'},
+        {name: 'America/Ojinaga'},
+        {name: 'America/Panama'},
+        {name: 'America/Pangnirtung'},
+        {name: 'America/Paramaribo'},
+        {name: 'America/Phoenix'},
+        {name: 'America/Port_of_Spain'},
+        {name: 'America/Port-au-Prince'},
+        {name: 'America/Porto_Velho'},
+        {name: 'America/Puerto_Rico'},
+        {name: 'America/Rainy_River'},
+        {name: 'America/Rankin_Inlet'},
+        {name: 'America/Recife'},
+        {name: 'America/Regina'},
+        {name: 'America/Resolute'},
+        {name: 'America/Rio_Branco'},
+        {name: 'America/Santa_Isabel'},
+        {name: 'America/Santarem'},
+        {name: 'America/Santiago'},
+        {name: 'America/Santo_Domingo'},
+        {name: 'America/Sao_Paulo'},
+        {name: 'America/Scoresbysund'},
+        {name: 'America/Shiprock'},
+        {name: 'America/Sitka'},
+        {name: 'America/St_Barthelemy'},
+        {name: 'America/St_Johns'},
+        {name: 'America/St_Kitts'},
+        {name: 'America/St_Lucia'},
+        {name: 'America/St_Thomas'},
+        {name: 'America/St_Vincent'},
+        {name: 'America/Swift_Current'},
+        {name: 'America/Tegucigalpa'},
+        {name: 'America/Thule'},
+        {name: 'America/Thunder_Bay'},
+        {name: 'America/Tijuana'},
+        {name: 'America/Toronto'},
+        {name: 'America/Tortola'},
+        {name: 'America/Vancouver'},
+        {name: 'America/Whitehorse'},
+        {name: 'America/Winnipeg'},
+        {name: 'America/Yakutat'},
+        {name: 'America/Yellowknife'},
+        {name: 'Asia/Bangkok'},
+        {name: 'Asia/Kolkata'},
+        {name: 'Asia/Manila'},
+        {name: 'Asia/Singapore'},
+        {name: 'Australia/Adelaide'},
+        {name: 'Australia/Brisbane'},
+        {name: 'Australia/Broken_Hill'},
+        {name: 'Australia/Currie'},
+        {name: 'Australia/Darwin'},
+        {name: 'Australia/Eucla'},
+        {name: 'Australia/Hobart'},
+        {name: 'Australia/Lindeman'},
+        {name: 'Australia/Lord_Howe'},
+        {name: 'Australia/Melbourne'},
+        {name: 'Australia/Perth'},
+        {name: 'Australia/Queensland'},
+        {name: 'Australia/Sydney'},
+        {name: 'Europe/Amsterdam'},
+        {name: 'Europe/Andorra'},
+        {name: 'Europe/Athens'},
+        {name: 'Europe/Belgrade'},
+        {name: 'Europe/Berlin'},
+        {name: 'Europe/Bratislava'},
+        {name: 'Europe/Brussels'},
+        {name: 'Europe/Bucharest'},
+        {name: 'Europe/Budapest'},
+        {name: 'Europe/Busingen'},
+        {name: 'Europe/Chisinau'},
+        {name: 'Europe/Copenhagen'},
+        {name: 'Europe/Dublin'},
+        {name: 'Europe/Gibraltar'},
+        {name: 'Europe/Guernsey'},
+        {name: 'Europe/Helsinki'},
+        {name: 'Europe/Isle_of_Man'},
+        {name: 'Europe/Istanbul'},
+        {name: 'Europe/Jersey'},
+        {name: 'Europe/Kaliningrad'},
+        {name: 'Europe/Kiev'},
+        {name: 'Europe/Lisbon'},
+        {name: 'Europe/Ljubljana'},
+        {name: 'Europe/London'},
+        {name: 'Europe/Luxembourg'},
+        {name: 'Europe/Madrid'},
+        {name: 'Europe/Malta'},
+        {name: 'Europe/Mariehamn'},
+        {name: 'Europe/Minsk'},
+        {name: 'Europe/Monaco'},
+        {name: 'Europe/Moscow'},
+        {name: 'Europe/Nicosia'},
+        {name: 'Europe/Oslo'},
+        {name: 'Europe/Paris'},
+        {name: 'Europe/Podgorica'},
+        {name: 'Europe/Prague'},
+        {name: 'Europe/Riga'},
+        {name: 'Europe/Rome'},
+        {name: 'Europe/Samara'},
+        {name: 'Europe/San_Marino'},
+        {name: 'Europe/Sarajevo'},
+        {name: 'Europe/Simferopol'},
+        {name: 'Europe/Skopje'},
+        {name: 'Europe/Sofia'},
+        {name: 'Europe/Stockholm'},
+        {name: 'Europe/Tallinn'},
+        {name: 'Europe/Tirane'},
+        {name: 'Europe/Uzhgorod'},
+        {name: 'Europe/Vaduz'},
+        {name: 'Europe/Vatican'},
+        {name: 'Europe/Vienna'},
+        {name: 'Europe/Vilnius'},
+        {name: 'Europe/Volgograd'},
+        {name: 'Europe/Warsaw'},
+        {name: 'Europe/Zagreb'},
+        {name: 'Europe/Zaporozhye'},
+        {name: 'Europe/Zurich'},
+        {name: 'Pacific/Auckland'},
+        {name: 'Pacific/Chatham'},
+        {name: 'Pacific/Honolulu'}
       ];
 
-        // End Working Time Values 48 lines
-        $scope.working_end_timeH = [
-          {value:1, label:"1"},
-          {value:2, label:"2"},
-          {value:3, label:"3"},
-          {value:4, label:"4"},
-          {value:5, label:"5"},
-          {value:6, label:"6"},
-          {value:7, label:"7"},
-          {value:8, label:"8"},
-          {value:9, label:"9"},
-          {value:10, label:"10"},
-          {value:11, label:"11"},
-          {value:12, label:"12"},
-          {value:13, label: "1"},
-          {value:14, label:"2"},
-          {value:15, label:"3"},
-          {value:16, label:"4"},
-          {value:17, label:"5"},
-          {value:18, label:"6"},
-          {value:19, label:"7"},
-          {value:20, label:"8"},
-          {value:21, label:"9"},
-          {value:22, label:"10"},
-          {value:23, label:"11"},
-          {value:24, label:"12"}
+      // Start Working Time Values 48 lines
+      $scope.working_start_timeH = [
+        {value:1, label:"1"},
+        {value:2, label:"2"},
+        {value:3, label:"3"},
+        {value:4, label:"4"},
+        {value:5, label:"5"},
+        {value:6, label:"6"},
+        {value:7, label:"7"},
+        {value:8, label:"8"},
+        {value:9, label:"9"},
+        {value:10, label:"10"},
+        {value:11, label:"11"},
+        {value:12, label:"12"},
+        {value:13, label: "1"},
+        {value:14, label:"2"},
+        {value:15, label:"3"},
+        {value:16, label:"4"},
+        {value:17, label:"5"},
+        {value:18, label:"6"},
+        {value:19, label:"7"},
+        {value:20, label:"8"},
+        {value:21, label:"9"},
+        {value:22, label:"10"},
+        {value:23, label:"11"},
+        {value:24, label:"12"}
+      ];
+      $scope.working_start_timeM = [
+        {value: "00 AM", label:":00AM"},
+        {value: "30 AM", label:":30AM"},
+        {value: "00 PM", label:":00PM"},
+        {value: "30 PM", label:":30PM"}
         ];
+
+      // End Working Time Values 48 lines
+      $scope.working_end_timeH = [
+        {value:1, label:"1"},
+        {value:2, label:"2"},
+        {value:3, label:"3"},
+        {value:4, label:"4"},
+        {value:5, label:"5"},
+        {value:6, label:"6"},
+        {value:7, label:"7"},
+        {value:8, label:"8"},
+        {value:9, label:"9"},
+        {value:10, label:"10"},
+        {value:11, label:"11"},
+        {value:12, label:"12"},
+        {value:13, label: "1"},
+        {value:14, label:"2"},
+        {value:15, label:"3"},
+        {value:16, label:"4"},
+        {value:17, label:"5"},
+        {value:18, label:"6"},
+        {value:19, label:"7"},
+        {value:20, label:"8"},
+        {value:21, label:"9"},
+        {value:22, label:"10"},
+        {value:23, label:"11"},
+        {value:24, label:"12"}
+      ];
 
         $scope.working_end_timeM = [
       {value: "00 AM", label:":00AM"},
@@ -1653,4 +1628,18 @@
       });
     });
 
+  app.controller('AppCtrl', function($scope, $http) {
+    $scope.items = [];
+    for (var i = 0; i < 50; i++) {
+      $scope.items.push(i);
+    }
 
+     $http({
+            url: "/falcon/viewActiveNew",
+            method: "GET"
+      })
+      .then(function(data){
+        $scope.details = data.data;
+        console.log($scope.details);
+      });
+  });
